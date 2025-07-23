@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Eidolon - Graph Visualizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .nav-link {
+            color: #6c757d;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+        }
+        .nav-link.active {
+            color: #667eea;
+            font-weight: bold;
+        }
+        .hero-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: white;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 0.75rem 2rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .prompt-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        .prompt-input {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 25px;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .prompt-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+        .real-time-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #28a745;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .response-area {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .response-item {
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+        .response-prompt {
+            font-weight: bold;
+            color: #667eea;
+        }
+        .response-text {
+            color: #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>Project Eidolon
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/agents"><i class="fas fa-crown me-1"></i>Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entities"><i class="fas fa-cube me-1"></i>Entities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/relationships"><i class="fas fa-project-diagram me-1"></i>Relationships</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/strain-analysis"><i class="fas fa-chart-line me-1"></i>Strain Analysis</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="hero-section">
+            <h1 class="display-4 mb-3">
+                <i class="fas fa-brain me-3"></i>Strain-Based Knowledge Graph
+            </h1>
+            <p class="lead mb-4">Explore the interconnected world of agents, entities, and their dynamic relationships</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/agents" class="btn btn-primary btn-lg w-100 mb-2">
+                        <i class="fas fa-crown me-2"></i>View Agents
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/entities" class="btn btn-primary btn-lg w-100 mb-2">
+                        <i class="fas fa-cube me-2"></i>Explore Entities
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/relationships" class="btn btn-primary btn-lg w-100 mb-2">
+                        <i class="fas fa-project-diagram me-2"></i>See Relationships
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/graph-canvas" class="btn btn-primary btn-lg w-100 mb-2">
+                        <i class="fas fa-project-diagram me-2"></i>Graph Canvas
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/strain-analysis" class="btn btn-primary btn-lg w-100 mb-2">
+                        <i class="fas fa-chart-line me-2"></i>Strain Analysis
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-time Prompt Interface -->
+        <div class="prompt-section">
+            <h3><i class="fas fa-comments me-2"></i>Interactive Prompt Interface</h3>
+            <p class="mb-3">
+                <span class="real-time-indicator"></span>
+                <strong>Real-time updates active</strong> - The graph updates automatically as you interact
+            </p>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="text" id="promptInput" class="prompt-input" 
+                           placeholder="Enter your prompt here (e.g., 'explain quantum mechanics', 'calculate pi', 'creative story')" 
+                           onkeypress="handlePromptKeyPress(event)">
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-lg w-100" onclick="processPrompt()">
+                        <i class="fas fa-paper-plane me-2"></i>Send Prompt
+                    </button>
+                </div>
+            </div>
+            
+            <div id="responseArea" class="response-area" style="display: none;">
+                <h5><i class="fas fa-reply me-2"></i>AI Responses</h5>
+                <div id="responseContent"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stat-card text-center">
+                    <div class="stat-number">{{ stats.total_agents }}</div>
+                    <div class="stat-label">
+                        <i class="fas fa-crown me-2"></i>Agent Thrones
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card text-center">
+                    <div class="stat-number">{{ stats.total_entities }}</div>
+                    <div class="stat-label">
+                        <i class="fas fa-cube me-2"></i>Entities
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card text-center">
+                    <div class="stat-number">{{ stats.total_relationships }}</div>
+                    <div class="stat-label">
+                        <i class="fas fa-project-diagram me-2"></i>Relationships
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-fire text-danger" style="font-size: 2rem;"></i>
+                        <h5 class="card-title mt-2">High Strain Entities</h5>
+                        <p class="card-text display-6 text-danger">{{ stats.high_strain_entities }}</p>
+                        <small class="text-muted">Entities with strain amplitude > 0.8</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt text-warning" style="font-size: 2rem;"></i>
+                        <h5 class="card-title mt-2">Low Resistance</h5>
+                        <p class="card-text display-6 text-warning">{{ stats.low_resistance_entities }}</p>
+                        <small class="text-muted">Entities with resistance < 0.5</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-sync-alt text-info" style="font-size: 2rem;"></i>
+                        <h5 class="card-title mt-2">High Frequency</h5>
+                        <p class="card-text display-6 text-info">{{ stats.high_frequency_entities }}</p>
+                        <small class="text-muted">Entities accessed > 5 times</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-info-circle me-2"></i>About Project Eidolon
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Project Eidolon is a strain-based knowledge graph system that models the dynamic relationships between:</p>
+                        <ul>
+                            <li><strong>Agent Thrones:</strong> Specialized AI agents with domain expertise</li>
+                            <li><strong>Entities:</strong> Concepts, people, places, events, and objects</li>
+                            <li><strong>Strain Data:</strong> Dynamic properties including amplitude, resistance, and frequency</li>
+                            <li><strong>Authority Relationships:</strong> Hierarchical connections between agents and entities</li>
+                        </ul>
+                        <p>The system uses strain mechanics to model how information flows and transforms through the knowledge network.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Real-time updates and prompt processing
+        let eventSource;
+        let responseHistory = [];
+
+        // Initialize real-time updates
+        function initRealTimeUpdates() {
+            eventSource = new EventSource('/api/stream-updates');
+            
+            eventSource.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                
+                if (data.type === 'update') {
+                    // Update statistics in real-time
+                    updateStats();
+                } else if (data.type === 'prompt_response') {
+                    // Handle prompt response
+                    handlePromptResponse(data.data);
+                } else if (data.type === 'heartbeat') {
+                    // Keep connection alive
+                    console.log('Real-time connection active');
+                }
+            };
+            
+            eventSource.onerror = function(event) {
+                console.error('EventSource failed:', event);
+                // Reconnect after 5 seconds
+                setTimeout(initRealTimeUpdates, 5000);
+            };
+        }
+
+        // Update statistics from server
+        function updateStats() {
+            fetch('/api/stats')
+                .then(response => response.json())
+                .then(stats => {
+                    // Update the statistics display
+                    document.querySelectorAll('.stat-number').forEach((element, index) => {
+                        const values = [stats.total_agents, stats.total_entities, stats.total_relationships];
+                        if (values[index] !== undefined) {
+                            element.textContent = values[index];
+                        }
+                    });
+                    
+                    // Update strain statistics
+                    const strainElements = document.querySelectorAll('.display-6');
+                    if (strainElements.length >= 3) {
+                        strainElements[0].textContent = stats.high_strain_entities;
+                        strainElements[1].textContent = stats.low_resistance_entities;
+                        strainElements[2].textContent = stats.high_frequency_entities;
+                    }
+                })
+                .catch(error => console.error('Error updating stats:', error));
+        }
+
+        // Handle prompt key press (Enter key)
+        function handlePromptKeyPress(event) {
+            if (event.key === 'Enter') {
+                processPrompt();
+            }
+        }
+
+        // Process user prompt
+        function processPrompt() {
+            const promptInput = document.getElementById('promptInput');
+            const prompt = promptInput.value.trim();
+            
+            if (!prompt) {
+                alert('Please enter a prompt');
+                return;
+            }
+            
+            // Show loading state
+            const button = document.querySelector('button[onclick="processPrompt()"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+            button.disabled = true;
+            
+            // Send prompt to server
+            fetch('/api/process-prompt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Add to response history
+                    responseHistory.unshift({
+                        prompt: prompt,
+                        response: data.response,
+                        timestamp: new Date().toLocaleTimeString()
+                    });
+                    
+                    // Update response display
+                    updateResponseDisplay();
+                    
+                    // Clear input
+                    promptInput.value = '';
+                    
+                    // Show success message
+                    showNotification('Prompt processed successfully!', 'success');
+                } else {
+                    showNotification('Error processing prompt: ' + data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Error processing prompt', 'error');
+            })
+            .finally(() => {
+                // Restore button state
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+
+        // Handle prompt response from real-time updates
+        function handlePromptResponse(data) {
+            responseHistory.unshift({
+                prompt: data.prompt,
+                response: data.response,
+                timestamp: new Date().toLocaleTimeString()
+            });
+            
+            updateResponseDisplay();
+            showNotification('New AI response received!', 'info');
+        }
+
+        // Update response display
+        function updateResponseDisplay() {
+            const responseArea = document.getElementById('responseArea');
+            const responseContent = document.getElementById('responseContent');
+            
+            if (responseHistory.length > 0) {
+                responseArea.style.display = 'block';
+                
+                responseContent.innerHTML = responseHistory.map(item => `
+                    <div class="response-item">
+                        <div class="response-prompt">"${item.prompt}"</div>
+                        <div class="response-text">${item.response.ai_response}</div>
+                        <small class="text-muted">${item.timestamp}</small>
+                        ${item.response.new_entities.length > 0 ? 
+                            `<div class="mt-2"><strong>New entities:</strong> ${item.response.new_entities.length}</div>` : ''}
+                        ${item.response.strain_changes.length > 0 ? 
+                            `<div><strong>Strain changes:</strong> ${item.response.strain_changes.length}</div>` : ''}
+                    </div>
+                `).join('');
+            } else {
+                responseArea.style.display = 'none';
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initRealTimeUpdates();
+            
+            // Update stats every 10 seconds as backup
+            setInterval(updateStats, 10000);
+        });
+    </script>
+</body>
+</html> 

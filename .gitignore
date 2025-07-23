@@ -1,0 +1,125 @@
+# Nim build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+*.out
+*.o
+*.obj
+*.a
+*.lib
+*.d
+*.pdb
+*.ilk
+*.exp
+*.map
+*.def
+*.res
+*.rc
+*.ico
+*.cur
+*.ani
+*.bmp
+*.gif
+*.jpg
+*.jpeg
+*.png
+*.tiff
+*.tga
+*.pcx
+*.ico
+*.cur
+*.ani
+*.bmp
+*.gif
+*.jpg
+*.jpeg
+*.png
+*.tiff
+*.tga
+*.pcx
+
+# Nim cache and temporary files
+nimcache/
+.nimble/
+*.nimble
+*.nims
+*.nim.cfg
+*.nim.cfg.bak
+*.nim.cfg.old
+*.nim.cfg.new
+*.nim.cfg.tmp
+*.nim.cfg.bak
+*.nim.cfg.old
+*.nim.cfg.new
+*.nim.cfg.tmp
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+*.new
+*.orig
+*.rej
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.lmdb
+
+# Environment and configuration files
+.env
+.env.local
+.env.production
+.env.development
+config.local.nim
+secrets.nim
+
+# Test artifacts
+test_results/
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# Documentation build artifacts
+docs/_build/
+docs/.doctrees/
+
+# Package manager files
+node_modules/
+vendor/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.backup
+*.backup.*
+*.bak
+*.bak.*
+
+# Temporary directories
+tmp/
+temp/
+.tmp/
+.temp/ 

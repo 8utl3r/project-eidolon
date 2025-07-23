@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Canvas - Project Eidolon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #6c757d;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+        }
+        .nav-link.active {
+            color: #667eea;
+            font-weight: bold;
+        }
+        .graph-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .controls {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .node {
+            cursor: pointer;
+        }
+        .node:hover {
+            stroke: #333;
+            stroke-width: 2px;
+        }
+        .node-label {
+            font-size: 12px;
+            font-weight: bold;
+            pointer-events: none;
+        }
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+            stroke-width: 2px;
+        }
+        .link:hover {
+            stroke-opacity: 1;
+            stroke-width: 3px;
+        }
+        .tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        .legend {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .stats-panel {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        .prompt-section {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .prompt-input {
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 14px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .prompt-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .real-time-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #28a745;
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>Project Eidolon
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/agents"><i class="fas fa-crown me-1"></i>Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entities"><i class="fas fa-cube me-1"></i>Entities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/graph-canvas"><i class="fas fa-project-diagram me-1"></i>Graph Canvas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/strain-analysis"><i class="fas fa-chart-line me-1"></i>Strain Analysis</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <!-- Prompt Interface -->
+        <div class="prompt-section">
+            <h5><i class="fas fa-comments me-2"></i>Interactive Prompt Interface</h5>
+            <p class="mb-2">
+                <span class="real-time-indicator"></span>
+                <strong>Real-time updates active</strong> - Graph updates automatically
+            </p>
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="text" id="promptInput" class="prompt-input" 
+                           placeholder="Enter your prompt here (e.g., 'explain quantum mechanics', 'calculate pi', 'creative story')" 
+                           onkeypress="handlePromptKeyPress(event)">
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary w-100" onclick="processPrompt()">
+                        <i class="fas fa-paper-plane me-2"></i>Send Prompt
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <h5><i class="fas fa-chart-bar me-2"></i>Graph Statistics</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span>Total Nodes:</span>
+                        <span id="total-nodes">-</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span>Total Edges:</span>
+                        <span id="total-edges">-</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span>Agents:</span>
+                        <span id="total-agents">-</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span>Entities:</span>
+                        <span id="total-entities">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="node-filter" class="form-label">Filter by Type:</label>
+                    <select class="form-select" id="node-filter">
+                        <option value="all">All Nodes</option>
+                        <option value="throne">Agents Only</option>
+                        <option value="entity">Entities Only</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="strain-filter" class="form-label">Strain Threshold:</label>
+                    <input type="range" class="form-range" id="strain-filter" min="0" max="1" step="0.1" value="0">
+                    <small id="strain-value">0.0</small>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Layout:</label>
+                    <div>
+                        <button class="btn btn-primary btn-sm" onclick="resetZoom()">
+                            <i class="fas fa-search-plus me-1"></i>Reset Zoom
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="toggleSimulation()">
+                            <i class="fas fa-play me-1"></i>Toggle Physics
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Actions:</label>
+                    <div>
+                        <button class="btn btn-success btn-sm" onclick="exportGraph()">
+                            <i class="fas fa-download me-1"></i>Export
+                        </button>
+                        <button class="btn btn-info btn-sm" onclick="showHighStrain()">
+                            <i class="fas fa-fire me-1"></i>High Strain
+                        </button>
+                        <button class="btn btn-warning btn-sm" onclick="refreshData()">
+                            <i class="fas fa-sync-alt me-1"></i>Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="graph-container">
+            <div id="graph-canvas"></div>
+        </div>
+
+        <div class="legend">
+            <h6><i class="fas fa-info-circle me-2"></i>Legend</h6>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ff6b6b;"></div>
+                        <span>Agent Thrones (High Strain)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4ecdc4;"></div>
+                        <span>Agent Thrones (Low Strain)</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #45b7d1;"></div>
+                        <span>Entities (High Strain)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #96ceb4;"></div>
+                        <span>Entities (Low Strain)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Graph data
+        let graphData = { nodes: [], links: [] };
+        let simulation;
+        let svg, g;
+        let tooltip;
+
+        // Initialize the graph
+        async function initGraph() {
+            try {
+                // Load complete graph data from API
+                const response = await fetch('/api/graph-data');
+                const data = await response.json();
+                
+                graphData = {
+                    nodes: data.nodes,
+                    links: data.links.map(rel => ({
+                        source: rel.from,
+                        target: rel.to,
+                        type: rel.type,
+                        strength: rel.authority_strength,
+                        strain: rel.strain_amplitude
+                    }))
+                };
+                
+                updateStats();
+                createGraph();
+            } catch (error) {
+                console.error('Error loading graph data:', error);
+                // Fallback to individual API calls
+                const [agents, entities, relationships] = await Promise.all([
+                    fetch('/api/agents').then(r => r.json()),
+                    fetch('/api/entities').then(r => r.json()),
+                    fetch('/api/relationships').then(r => r.json())
+                ]);
+
+                // Process nodes
+                const nodes = [];
+                
+                // Add agents
+                agents.forEach(agent => {
+                    nodes.push({
+                        id: agent.id,
+                        name: agent.agent,
+                        type: 'throne',
+                        strain: agent.current_strain,
+                        domain: agent.domain,
+                        isAgent: true,
+                        ...agent
+                    });
+                });
+
+                // Add entities
+                entities.forEach(entity => {
+                    nodes.push({
+                        id: entity.id,
+                        name: entity.name,
+                        type: 'entity',
+                        strain: entity.strain_amplitude,
+                        entityType: entity.entity_type,
+                        isAgent: false,
+                        ...entity
+                    });
+                });
+
+                // Process links
+                const links = relationships.map(rel => ({
+                    source: rel.from,
+                    target: rel.to,
+                    type: rel.type,
+                    strength: rel.authority_strength,
+                    strain: rel.strain_amplitude
+                }));
+
+                graphData = { nodes, links };
+                updateStats();
+                createGraph();
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('total-nodes').textContent = graphData.nodes.length;
+            document.getElementById('total-edges').textContent = graphData.links.length;
+            document.getElementById('total-agents').textContent = graphData.nodes.filter(n => n.isAgent).length;
+            document.getElementById('total-entities').textContent = graphData.nodes.filter(n => !n.isAgent).length;
+        }
+
+        function createGraph() {
+            const container = document.getElementById('graph-canvas');
+            const width = container.clientWidth;
+            const height = Math.max(600, window.innerHeight - 400);
+
+            // Clear existing content
+            container.innerHTML = '';
+
+            // Create SVG
+            svg = d3.select('#graph-canvas')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            g = svg.append('g');
+
+            // Add zoom behavior
+            const zoom = d3.zoom()
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                });
+
+            svg.call(zoom);
+
+            // Create tooltip
+            tooltip = d3.select('body').append('div')
+                .attr('class', 'tooltip')
+                .style('opacity', 0);
+
+            // Create simulation
+            simulation = d3.forceSimulation(graphData.nodes)
+                .force('link', d3.forceLink(graphData.links).id(d => d.id).distance(100))
+                .force('charge', d3.forceManyBody().strength(-300))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(30));
+
+            // Create links
+            const link = g.append('g')
+                .selectAll('line')
+                .data(graphData.links)
+                .enter().append('line')
+                .attr('class', 'link')
+                .style('stroke-width', d => Math.sqrt(d.strength) * 3);
+
+            // Create nodes
+            const node = g.append('g')
+                .selectAll('circle')
+                .data(graphData.nodes)
+                .enter().append('circle')
+                .attr('class', 'node')
+                .attr('r', d => d.isAgent ? 15 : 12)
+                .style('fill', d => getNodeColor(d))
+                .style('stroke', '#fff')
+                .style('stroke-width', 2)
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+
+            // Add labels
+            const label = g.append('g')
+                .selectAll('text')
+                .data(graphData.nodes)
+                .enter().append('text')
+                .attr('class', 'node-label')
+                .text(d => d.name.length > 15 ? d.name.substring(0, 15) + '...' : d.name)
+                .style('text-anchor', 'middle')
+                .style('dy', '.35em');
+
+            // Add tooltips
+            node.on('mouseover', function(event, d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style('opacity', .9);
+                tooltip.html(`
+                    <strong>${d.name}</strong><br/>
+                    Type: ${d.isAgent ? 'Agent' : 'Entity'}<br/>
+                    Strain: ${d.strain.toFixed(2)}<br/>
+                    ${d.isAgent ? `Domain: ${d.domain}` : `Entity Type: ${d.entityType}`}
+                `)
+                    .style('left', (event.pageX + 10) + 'px')
+                    .style('top', (event.pageY - 10) + 'px');
+            })
+            .on('mouseout', function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style('opacity', 0);
+            });
+
+            // Update positions on simulation tick
+            simulation.on('tick', () => {
+                link
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+
+                node
+                    .attr('cx', d => d.x)
+                    .attr('cy', d => d.y);
+
+                label
+                    .attr('x', d => d.x)
+                    .attr('y', d => d.y);
+            });
+        }
+
+        function getNodeColor(d) {
+            if (d.isAgent) {
+                return d.strain > 0.5 ? '#ff6b6b' : '#4ecdc4';
+            } else {
+                return d.strain > 0.5 ? '#45b7d1' : '#96ceb4';
+            }
+        }
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        function resetZoom() {
+            svg.transition().duration(750).call(
+                d3.zoom().transform,
+                d3.zoomIdentity
+            );
+        }
+
+        function toggleSimulation() {
+            if (simulation.alpha() > 0) {
+                simulation.alpha(0);
+            } else {
+                simulation.alpha(0.3).restart();
+            }
+        }
+
+        function exportGraph() {
+            const dataStr = JSON.stringify(graphData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'project-eidolon-graph.json';
+            link.click();
+        }
+
+        function showHighStrain() {
+            const highStrainNodes = graphData.nodes.filter(n => n.strain > 0.8);
+            console.log('High strain nodes:', highStrainNodes);
+            alert(`Found ${highStrainNodes.length} high strain nodes (>0.8)`);
+        }
+
+        async function refreshData() {
+            try {
+                const response = await fetch('/api/refresh');
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    // Reload the graph with fresh data
+                    await initGraph();
+                    alert('Data refreshed successfully!');
+                } else {
+                    alert('Error refreshing data: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error refreshing data:', error);
+                alert('Error refreshing data. Check console for details.');
+            }
+        }
+
+        // Event listeners
+        document.getElementById('node-filter').addEventListener('change', function() {
+            const filter = this.value;
+            const nodes = graphData.nodes.filter(n => {
+                if (filter === 'all') return true;
+                return n.type === filter;
+            });
+            const nodeIds = new Set(nodes.map(n => n.id));
+            const links = graphData.links.filter(l => 
+                nodeIds.has(l.source.id || l.source) && nodeIds.has(l.target.id || l.target)
+            );
+            
+            // Update simulation with filtered data
+            simulation.nodes(nodes);
+            simulation.force('link').links(links);
+            simulation.alpha(0.3).restart();
+        });
+
+        document.getElementById('strain-filter').addEventListener('input', function() {
+            const threshold = parseFloat(this.value);
+            document.getElementById('strain-value').textContent = threshold.toFixed(1);
+            
+            // Update node colors based on strain threshold
+            d3.selectAll('.node').style('fill', d => {
+                if (d.strain < threshold) return '#ddd';
+                return getNodeColor(d);
+            });
+        });
+
+        // Initialize when page loads
+        window.addEventListener('load', initGraph);
+        window.addEventListener('resize', () => {
+            if (svg) {
+                const container = document.getElementById('graph-canvas');
+                svg.attr('width', container.clientWidth);
+            }
+        });
+
+        // Real-time updates and prompt processing
+        let eventSource;
+
+        // Initialize real-time updates
+        function initRealTimeUpdates() {
+            eventSource = new EventSource('/api/stream-updates');
+            
+            eventSource.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                
+                if (data.type === 'update') {
+                    // Update graph data and redraw
+                    updateGraphData(data.data);
+                } else if (data.type === 'prompt_response') {
+                    // Handle prompt response
+                    handlePromptResponse(data.data);
+                } else if (data.type === 'heartbeat') {
+                    // Keep connection alive
+                    console.log('Real-time connection active');
+                }
+            };
+            
+            eventSource.onerror = function(event) {
+                console.error('EventSource failed:', event);
+                // Reconnect after 5 seconds
+                setTimeout(initRealTimeUpdates, 5000);
+            };
+        }
+
+        // Update graph data from real-time updates
+        function updateGraphData(data) {
+            // Update nodes with new strain values
+            if (data.entities) {
+                data.entities.forEach(newEntity => {
+                    const existingNode = graphData.nodes.find(n => n.id === newEntity.id);
+                    if (existingNode) {
+                        existingNode.strain = newEntity.strain_amplitude;
+                        // Update node color
+                        d3.selectAll('.node').filter(d => d.id === newEntity.id)
+                            .style('fill', getNodeColor(existingNode));
+                    }
+                });
+            }
+            
+            // Update statistics
+            updateStats();
+        }
+
+        // Handle prompt response
+        function handlePromptResponse(data) {
+            console.log('Prompt response:', data);
+            
+            // Add new entities to graph
+            if (data.new_entities && data.new_entities.length > 0) {
+                data.new_entities.forEach(entity => {
+                    const newNode = {
+                        id: entity.id,
+                        name: entity.name,
+                        type: 'entity',
+                        strain: entity.strain_amplitude,
+                        entityType: entity.entity_type,
+                        isAgent: false,
+                        ...entity
+                    };
+                    
+                    graphData.nodes.push(newNode);
+                    
+                    // Add to simulation
+                    simulation.nodes(graphData.nodes);
+                    simulation.alpha(0.3).restart();
+                });
+                
+                // Update statistics
+                updateStats();
+                
+                // Show notification
+                showNotification(`Added ${data.new_entities.length} new entities!`, 'success');
+            }
+        }
+
+        // Handle prompt key press (Enter key)
+        function handlePromptKeyPress(event) {
+            if (event.key === 'Enter') {
+                processPrompt();
+            }
+        }
+
+        // Process user prompt
+        function processPrompt() {
+            const promptInput = document.getElementById('promptInput');
+            const prompt = promptInput.value.trim();
+            
+            if (!prompt) {
+                alert('Please enter a prompt');
+                return;
+            }
+            
+            // Show loading state
+            const button = document.querySelector('button[onclick="processPrompt()"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+            button.disabled = true;
+            
+            // Send prompt to server
+            fetch('/api/process-prompt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Clear input
+                    promptInput.value = '';
+                    
+                    // Show success message
+                    showNotification('Prompt processed successfully!', 'success');
+                } else {
+                    showNotification('Error processing prompt: ' + data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Error processing prompt', 'error');
+            })
+            .finally(() => {
+                // Restore button state
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Initialize real-time updates when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initRealTimeUpdates();
+        });
+    </script>
+</body>
+</html> 

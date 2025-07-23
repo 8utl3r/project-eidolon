@@ -1,0 +1,1477 @@
+{
+  "entities": [
+    {
+      "id": "arithmetic",
+      "name": "Arithmetic",
+      "entity_type": "concept_type",
+      "description": "Basic operations: addition, subtraction, multiplication, division",
+      "strain_amplitude": 0.9,
+      "strain_resistance": 0.1,
+      "strain_frequency": 20,
+      "access_count": 20,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "algebra",
+      "name": "Algebra",
+      "entity_type": "concept_type",
+      "description": "Study of mathematical symbols and rules for manipulating them",
+      "strain_amplitude": 0.85,
+      "strain_resistance": 0.2,
+      "strain_frequency": 18,
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "geometry",
+      "name": "Geometry",
+      "entity_type": "concept_type",
+      "description": "Study of shapes, sizes, and spatial relationships",
+      "strain_amplitude": 0.88,
+      "strain_resistance": 0.15,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "calculus",
+      "name": "Calculus",
+      "entity_type": "concept_type",
+      "description": "Study of continuous change through derivatives and integrals",
+      "strain_amplitude": 0.92,
+      "strain_resistance": 0.3,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "set_theory",
+      "name": "Set Theory",
+      "entity_type": "concept_type",
+      "description": "Foundation of mathematics dealing with collections of objects",
+      "strain_amplitude": 0.87,
+      "strain_resistance": 0.25,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "number_theory",
+      "name": "Number Theory",
+      "entity_type": "concept_type",
+      "description": "Study of integers and their properties",
+      "strain_amplitude": 0.89,
+      "strain_resistance": 0.2,
+      "strain_frequency": 15,
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "probability",
+      "name": "Probability",
+      "entity_type": "concept_type",
+      "description": "Study of uncertainty and random events",
+      "strain_amplitude": 0.83,
+      "strain_resistance": 0.35,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "statistics",
+      "name": "Statistics",
+      "entity_type": "concept_type",
+      "description": "Collection, analysis, and interpretation of data",
+      "strain_amplitude": 0.86,
+      "strain_resistance": 0.3,
+      "strain_frequency": 17,
+      "access_count": 17,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "linear_algebra",
+      "name": "Linear Algebra",
+      "entity_type": "concept_type",
+      "description": "Study of vectors, matrices, and linear transformations",
+      "strain_amplitude": 0.91,
+      "strain_resistance": 0.4,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "topology",
+      "name": "Topology",
+      "entity_type": "concept_type",
+      "description": "Study of geometric properties preserved under continuous deformation",
+      "strain_amplitude": 0.94,
+      "strain_resistance": 0.5,
+      "strain_frequency": 9,
+      "access_count": 9,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "propositional_logic",
+      "name": "Propositional Logic",
+      "entity_type": "concept_type",
+      "description": "Study of logical relationships between propositions",
+      "strain_amplitude": 0.88,
+      "strain_resistance": 0.2,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "predicate_logic",
+      "name": "Predicate Logic",
+      "entity_type": "concept_type",
+      "description": "Extension of propositional logic with quantifiers and predicates",
+      "strain_amplitude": 0.92,
+      "strain_resistance": 0.3,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "modal_logic",
+      "name": "Modal Logic",
+      "entity_type": "concept_type",
+      "description": "Logic dealing with necessity and possibility",
+      "strain_amplitude": 0.85,
+      "strain_resistance": 0.4,
+      "strain_frequency": 10,
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "inductive_reasoning",
+      "name": "Inductive Reasoning",
+      "entity_type": "concept_type",
+      "description": "Reasoning from specific observations to general conclusions",
+      "strain_amplitude": 0.8,
+      "strain_resistance": 0.25,
+      "strain_frequency": 18,
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "deductive_reasoning",
+      "name": "Deductive Reasoning",
+      "entity_type": "concept_type",
+      "description": "Reasoning from general principles to specific conclusions",
+      "strain_amplitude": 0.87,
+      "strain_resistance": 0.2,
+      "strain_frequency": 15,
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "fallacies",
+      "name": "Logical Fallacies",
+      "entity_type": "concept_type",
+      "description": "Common errors in reasoning that undermine logic",
+      "strain_amplitude": 0.75,
+      "strain_resistance": 0.3,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "validity",
+      "name": "Logical Validity",
+      "entity_type": "concept_type",
+      "description": "Property of arguments where conclusion follows from premises",
+      "strain_amplitude": 0.9,
+      "strain_resistance": 0.15,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "soundness",
+      "name": "Logical Soundness",
+      "entity_type": "concept_type",
+      "description": "Property of arguments that are valid with true premises",
+      "strain_amplitude": 0.93,
+      "strain_resistance": 0.2,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "mechanics",
+      "name": "Classical Mechanics",
+      "entity_type": "concept_type",
+      "description": "Study of motion and forces in macroscopic systems",
+      "strain_amplitude": 0.89,
+      "strain_resistance": 0.2,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "thermodynamics",
+      "name": "Thermodynamics",
+      "entity_type": "concept_type",
+      "description": "Study of heat, energy, and their transformations",
+      "strain_amplitude": 0.86,
+      "strain_resistance": 0.3,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "electromagnetism",
+      "name": "Electromagnetism",
+      "entity_type": "concept_type",
+      "description": "Study of electric and magnetic fields and their interactions",
+      "strain_amplitude": 0.91,
+      "strain_resistance": 0.4,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "quantum_mechanics",
+      "name": "Quantum Mechanics",
+      "entity_type": "concept_type",
+      "description": "Physics of matter and energy at atomic and subatomic scales",
+      "strain_amplitude": 0.95,
+      "strain_resistance": 0.6,
+      "strain_frequency": 10,
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "relativity",
+      "name": "Relativity",
+      "entity_type": "concept_type",
+      "description": "Einstein's theories of special and general relativity",
+      "strain_amplitude": 0.94,
+      "strain_resistance": 0.5,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "optics",
+      "name": "Optics",
+      "entity_type": "concept_type",
+      "description": "Study of light and its interactions with matter",
+      "strain_amplitude": 0.84,
+      "strain_resistance": 0.25,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "acoustics",
+      "name": "Acoustics",
+      "entity_type": "concept_type",
+      "description": "Study of sound and mechanical waves",
+      "strain_amplitude": 0.82,
+      "strain_resistance": 0.2,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "fluid_dynamics",
+      "name": "Fluid Dynamics",
+      "entity_type": "concept_type",
+      "description": "Study of fluid flow and its properties",
+      "strain_amplitude": 0.88,
+      "strain_resistance": 0.35,
+      "strain_frequency": 9,
+      "access_count": 9,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "atomic_theory",
+      "name": "Atomic Theory",
+      "entity_type": "concept_type",
+      "description": "Theory that matter is composed of discrete units called atoms",
+      "strain_amplitude": 0.9,
+      "strain_resistance": 0.2,
+      "strain_frequency": 15,
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "periodic_table",
+      "name": "Periodic Table",
+      "entity_type": "concept_type",
+      "description": "Tabular arrangement of chemical elements by atomic number",
+      "strain_amplitude": 0.85,
+      "strain_resistance": 0.15,
+      "strain_frequency": 18,
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "chemical_bonding",
+      "name": "Chemical Bonding",
+      "entity_type": "concept_type",
+      "description": "Attraction between atoms that enables formation of molecules",
+      "strain_amplitude": 0.87,
+      "strain_resistance": 0.3,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "reactions",
+      "name": "Chemical Reactions",
+      "entity_type": "concept_type",
+      "description": "Processes that lead to chemical transformation of substances",
+      "strain_amplitude": 0.83,
+      "strain_resistance": 0.25,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "thermochemistry",
+      "name": "Thermochemistry",
+      "entity_type": "concept_type",
+      "description": "Study of heat changes in chemical reactions",
+      "strain_amplitude": 0.81,
+      "strain_resistance": 0.35,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "kinetics",
+      "name": "Chemical Kinetics",
+      "entity_type": "concept_type",
+      "description": "Study of rates of chemical reactions",
+      "strain_amplitude": 0.84,
+      "strain_resistance": 0.4,
+      "strain_frequency": 10,
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "cell_theory",
+      "name": "Cell Theory",
+      "entity_type": "concept_type",
+      "description": "Theory that all living organisms are composed of cells",
+      "strain_amplitude": 0.88,
+      "strain_resistance": 0.2,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "evolution",
+      "name": "Evolution",
+      "entity_type": "concept_type",
+      "description": "Change in heritable characteristics of biological populations over time",
+      "strain_amplitude": 0.92,
+      "strain_resistance": 0.3,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "genetics",
+      "name": "Genetics",
+      "entity_type": "concept_type",
+      "description": "Study of genes, genetic variation, and heredity",
+      "strain_amplitude": 0.89,
+      "strain_resistance": 0.25,
+      "strain_frequency": 15,
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "ecology",
+      "name": "Ecology",
+      "entity_type": "concept_type",
+      "description": "Study of interactions between organisms and their environment",
+      "strain_amplitude": 0.85,
+      "strain_resistance": 0.3,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "physiology",
+      "name": "Physiology",
+      "entity_type": "concept_type",
+      "description": "Study of functions and mechanisms in living systems",
+      "strain_amplitude": 0.87,
+      "strain_resistance": 0.35,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "biochemistry",
+      "name": "Biochemistry",
+      "entity_type": "concept_type",
+      "description": "Study of chemical processes within living organisms",
+      "strain_amplitude": 0.9,
+      "strain_resistance": 0.4,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "algorithms",
+      "name": "Algorithms",
+      "entity_type": "concept_type",
+      "description": "Step-by-step procedures for solving problems",
+      "strain_amplitude": 0.91,
+      "strain_resistance": 0.2,
+      "strain_frequency": 19,
+      "access_count": 19,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "data_structures",
+      "name": "Data Structures",
+      "entity_type": "concept_type",
+      "description": "Organized ways of storing and accessing data",
+      "strain_amplitude": 0.89,
+      "strain_resistance": 0.25,
+      "strain_frequency": 17,
+      "access_count": 17,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "programming_paradigms",
+      "name": "Programming Paradigms",
+      "entity_type": "concept_type",
+      "description": "Fundamental styles of programming",
+      "strain_amplitude": 0.86,
+      "strain_resistance": 0.3,
+      "strain_frequency": 15,
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "complexity_theory",
+      "name": "Computational Complexity",
+      "entity_type": "concept_type",
+      "description": "Study of resource requirements of algorithms",
+      "strain_amplitude": 0.93,
+      "strain_resistance": 0.4,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "artificial_intelligence",
+      "name": "Artificial Intelligence",
+      "entity_type": "concept_type",
+      "description": "Simulation of human intelligence in machines",
+      "strain_amplitude": 0.94,
+      "strain_resistance": 0.3,
+      "strain_frequency": 18,
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "machine_learning",
+      "name": "Machine Learning",
+      "entity_type": "concept_type",
+      "description": "Algorithms that improve through experience",
+      "strain_amplitude": 0.92,
+      "strain_resistance": 0.25,
+      "strain_frequency": 20,
+      "access_count": 20,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "networks",
+      "name": "Computer Networks",
+      "entity_type": "concept_type",
+      "description": "Interconnected computing devices for data exchange",
+      "strain_amplitude": 0.87,
+      "strain_resistance": 0.2,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "databases",
+      "name": "Databases",
+      "entity_type": "concept_type",
+      "description": "Organized collections of structured information",
+      "strain_amplitude": 0.85,
+      "strain_resistance": 0.25,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "metaphysics",
+      "name": "Metaphysics",
+      "entity_type": "concept_type",
+      "description": "Study of fundamental nature of reality and existence",
+      "strain_amplitude": 0.94,
+      "strain_resistance": 0.5,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "epistemology",
+      "name": "Epistemology",
+      "entity_type": "concept_type",
+      "description": "Study of knowledge, belief, and justification",
+      "strain_amplitude": 0.91,
+      "strain_resistance": 0.4,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "ethics",
+      "name": "Ethics",
+      "entity_type": "concept_type",
+      "description": "Study of moral principles and values",
+      "strain_amplitude": 0.88,
+      "strain_resistance": 0.3,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "aesthetics",
+      "name": "Aesthetics",
+      "entity_type": "concept_type",
+      "description": "Study of beauty, art, and taste",
+      "strain_amplitude": 0.82,
+      "strain_resistance": 0.4,
+      "strain_frequency": 10,
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "logic_philosophy",
+      "name": "Philosophical Logic",
+      "entity_type": "concept_type",
+      "description": "Application of logic to philosophical problems",
+      "strain_amplitude": 0.89,
+      "strain_resistance": 0.35,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "philosophy_of_mind",
+      "name": "Philosophy of Mind",
+      "entity_type": "concept_type",
+      "description": "Study of consciousness and mental phenomena",
+      "strain_amplitude": 0.93,
+      "strain_resistance": 0.45,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "philosophy_of_science",
+      "name": "Philosophy of Science",
+      "entity_type": "concept_type",
+      "description": "Study of foundations and implications of science",
+      "strain_amplitude": 0.9,
+      "strain_resistance": 0.4,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "cognitive_psychology",
+      "name": "Cognitive Psychology",
+      "entity_type": "concept_type",
+      "description": "Study of mental processes like thinking, memory, and learning",
+      "strain_amplitude": 0.88,
+      "strain_resistance": 0.3,
+      "strain_frequency": 15,
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "behavioral_psychology",
+      "name": "Behavioral Psychology",
+      "entity_type": "concept_type",
+      "description": "Study of observable behavior and learning processes",
+      "strain_amplitude": 0.85,
+      "strain_resistance": 0.25,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "social_psychology",
+      "name": "Social Psychology",
+      "entity_type": "concept_type",
+      "description": "Study of how people think, feel, and behave in social situations",
+      "strain_amplitude": 0.83,
+      "strain_resistance": 0.3,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "developmental_psychology",
+      "name": "Developmental Psychology",
+      "entity_type": "concept_type",
+      "description": "Study of psychological development across the lifespan",
+      "strain_amplitude": 0.86,
+      "strain_resistance": 0.35,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "neuroscience",
+      "name": "Neuroscience",
+      "entity_type": "concept_type",
+      "description": "Study of the nervous system and brain",
+      "strain_amplitude": 0.91,
+      "strain_resistance": 0.4,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "newton",
+      "name": "Isaac Newton",
+      "entity_type": "person",
+      "description": "Mathematician and physicist who formulated laws of motion and gravity",
+      "strain_amplitude": 0.93,
+      "strain_resistance": 0.2,
+      "strain_frequency": 16,
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "darwin",
+      "name": "Charles Darwin",
+      "entity_type": "person",
+      "description": "Naturalist who developed theory of evolution by natural selection",
+      "strain_amplitude": 0.9,
+      "strain_resistance": 0.3,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "entity_type": "person",
+      "description": "Ancient Greek philosopher who founded the Academy in Athens",
+      "strain_amplitude": 0.88,
+      "strain_resistance": 0.25,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "aristotle",
+      "name": "Aristotle",
+      "entity_type": "person",
+      "description": "Ancient Greek philosopher who made contributions to logic and biology",
+      "strain_amplitude": 0.89,
+      "strain_resistance": 0.2,
+      "strain_frequency": 15,
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "descartes",
+      "name": "Ren\u00e9 Descartes",
+      "entity_type": "person",
+      "description": "French philosopher and mathematician who developed Cartesian geometry",
+      "strain_amplitude": 0.87,
+      "strain_resistance": 0.3,
+      "strain_frequency": 12,
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "kant",
+      "name": "Immanuel Kant",
+      "entity_type": "person",
+      "description": "German philosopher who wrote Critique of Pure Reason",
+      "strain_amplitude": 0.92,
+      "strain_resistance": 0.4,
+      "strain_frequency": 11,
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "gauss",
+      "name": "Carl Friedrich Gauss",
+      "entity_type": "person",
+      "description": "German mathematician known as the Prince of Mathematicians",
+      "strain_amplitude": 0.91,
+      "strain_resistance": 0.25,
+      "strain_frequency": 13,
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "euler",
+      "name": "Leonhard Euler",
+      "entity_type": "person",
+      "description": "Swiss mathematician who made fundamental contributions to analysis",
+      "strain_amplitude": 0.9,
+      "strain_resistance": 0.2,
+      "strain_frequency": 14,
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "hilbert",
+      "name": "David Hilbert",
+      "entity_type": "person",
+      "description": "German mathematician who formulated 23 problems for 20th century",
+      "strain_amplitude": 0.89,
+      "strain_resistance": 0.3,
+      "strain_frequency": 10,
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    },
+    {
+      "id": "g\u00f6del",
+      "name": "Kurt G\u00f6del",
+      "entity_type": "person",
+      "description": "Austrian logician who proved incompleteness theorems",
+      "strain_amplitude": 0.94,
+      "strain_resistance": 0.5,
+      "strain_frequency": 9,
+      "access_count": 9,
+      "created": "2024-01-01T00:00:00",
+      "modified": "2024-12-21T00:00:00"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel_1",
+      "from": "engineer",
+      "to": "arithmetic",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_2",
+      "from": "engineer",
+      "to": "algebra",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_3",
+      "from": "engineer",
+      "to": "geometry",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_4",
+      "from": "engineer",
+      "to": "calculus",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_5",
+      "from": "engineer",
+      "to": "set_theory",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_6",
+      "from": "engineer",
+      "to": "number_theory",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_7",
+      "from": "engineer",
+      "to": "probability",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_8",
+      "from": "engineer",
+      "to": "statistics",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_9",
+      "from": "engineer",
+      "to": "linear_algebra",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_10",
+      "from": "engineer",
+      "to": "topology",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_11",
+      "from": "engineer",
+      "to": "newton",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_12",
+      "from": "engineer",
+      "to": "gauss",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_13",
+      "from": "engineer",
+      "to": "euler",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_14",
+      "from": "engineer",
+      "to": "hilbert",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_15",
+      "from": "engineer",
+      "to": "g\u00f6del",
+      "type": "has_authority",
+      "authority_strength": 0.95,
+      "strain_amplitude": 0.95
+    },
+    {
+      "id": "rel_16",
+      "from": "skeptic",
+      "to": "propositional_logic",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_17",
+      "from": "skeptic",
+      "to": "predicate_logic",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_18",
+      "from": "skeptic",
+      "to": "modal_logic",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_19",
+      "from": "skeptic",
+      "to": "inductive_reasoning",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_20",
+      "from": "skeptic",
+      "to": "deductive_reasoning",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_21",
+      "from": "skeptic",
+      "to": "fallacies",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_22",
+      "from": "skeptic",
+      "to": "validity",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_23",
+      "from": "skeptic",
+      "to": "soundness",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_24",
+      "from": "skeptic",
+      "to": "logic_philosophy",
+      "type": "has_authority",
+      "authority_strength": 0.98,
+      "strain_amplitude": 0.98
+    },
+    {
+      "id": "rel_25",
+      "from": "dreamer",
+      "to": "artificial_intelligence",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_26",
+      "from": "dreamer",
+      "to": "machine_learning",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_27",
+      "from": "dreamer",
+      "to": "algorithms",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_28",
+      "from": "dreamer",
+      "to": "programming_paradigms",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_29",
+      "from": "dreamer",
+      "to": "complexity_theory",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_30",
+      "from": "dreamer",
+      "to": "networks",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_31",
+      "from": "dreamer",
+      "to": "databases",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_32",
+      "from": "dreamer",
+      "to": "aesthetics",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_33",
+      "from": "dreamer",
+      "to": "philosophy_of_mind",
+      "type": "has_authority",
+      "authority_strength": 0.85,
+      "strain_amplitude": 0.85
+    },
+    {
+      "id": "rel_34",
+      "from": "philosopher",
+      "to": "metaphysics",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_35",
+      "from": "philosopher",
+      "to": "epistemology",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_36",
+      "from": "philosopher",
+      "to": "ethics",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_37",
+      "from": "philosopher",
+      "to": "aesthetics",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_38",
+      "from": "philosopher",
+      "to": "logic_philosophy",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_39",
+      "from": "philosopher",
+      "to": "philosophy_of_mind",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_40",
+      "from": "philosopher",
+      "to": "philosophy_of_science",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_41",
+      "from": "philosopher",
+      "to": "plato",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_42",
+      "from": "philosopher",
+      "to": "aristotle",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_43",
+      "from": "philosopher",
+      "to": "descartes",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_44",
+      "from": "philosopher",
+      "to": "kant",
+      "type": "has_authority",
+      "authority_strength": 0.92,
+      "strain_amplitude": 0.92
+    },
+    {
+      "id": "rel_45",
+      "from": "investigator",
+      "to": "mechanics",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_46",
+      "from": "investigator",
+      "to": "thermodynamics",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_47",
+      "from": "investigator",
+      "to": "electromagnetism",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_48",
+      "from": "investigator",
+      "to": "quantum_mechanics",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_49",
+      "from": "investigator",
+      "to": "relativity",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_50",
+      "from": "investigator",
+      "to": "optics",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_51",
+      "from": "investigator",
+      "to": "acoustics",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_52",
+      "from": "investigator",
+      "to": "fluid_dynamics",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_53",
+      "from": "investigator",
+      "to": "atomic_theory",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_54",
+      "from": "investigator",
+      "to": "periodic_table",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_55",
+      "from": "investigator",
+      "to": "chemical_bonding",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_56",
+      "from": "investigator",
+      "to": "reactions",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_57",
+      "from": "investigator",
+      "to": "cell_theory",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_58",
+      "from": "investigator",
+      "to": "evolution",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_59",
+      "from": "investigator",
+      "to": "genetics",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_60",
+      "from": "investigator",
+      "to": "ecology",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_61",
+      "from": "investigator",
+      "to": "physiology",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_62",
+      "from": "investigator",
+      "to": "biochemistry",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_63",
+      "from": "investigator",
+      "to": "newton",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_64",
+      "from": "investigator",
+      "to": "darwin",
+      "type": "has_authority",
+      "authority_strength": 0.88,
+      "strain_amplitude": 0.88
+    },
+    {
+      "id": "rel_65",
+      "from": "archivist",
+      "to": "data_structures",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_66",
+      "from": "archivist",
+      "to": "databases",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_67",
+      "from": "archivist",
+      "to": "networks",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_68",
+      "from": "archivist",
+      "to": "cognitive_psychology",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_69",
+      "from": "archivist",
+      "to": "behavioral_psychology",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_70",
+      "from": "archivist",
+      "to": "social_psychology",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_71",
+      "from": "archivist",
+      "to": "developmental_psychology",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_72",
+      "from": "archivist",
+      "to": "neuroscience",
+      "type": "has_authority",
+      "authority_strength": 0.8,
+      "strain_amplitude": 0.8
+    },
+    {
+      "id": "rel_73",
+      "from": "stage_manager",
+      "to": "thermochemistry",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    },
+    {
+      "id": "rel_74",
+      "from": "stage_manager",
+      "to": "kinetics",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    },
+    {
+      "id": "rel_75",
+      "from": "stage_manager",
+      "to": "optics",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    },
+    {
+      "id": "rel_76",
+      "from": "stage_manager",
+      "to": "acoustics",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    },
+    {
+      "id": "rel_77",
+      "from": "stage_manager",
+      "to": "fluid_dynamics",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    },
+    {
+      "id": "rel_78",
+      "from": "stage_manager",
+      "to": "topology",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    },
+    {
+      "id": "rel_79",
+      "from": "stage_manager",
+      "to": "modal_logic",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    },
+    {
+      "id": "rel_80",
+      "from": "stage_manager",
+      "to": "philosophy_of_science",
+      "type": "has_authority",
+      "authority_strength": 0.75,
+      "strain_amplitude": 0.75
+    }
+  ],
+  "created": "2025-07-21T18:07:50.502294",
+  "description": "Comprehensive foundational knowledge base for Project Eidolon agents",
+  "statistics": {
+    "total_entities": 68,
+    "total_relationships": 80,
+    "mathematical_concepts": 10,
+    "logical_concepts": 8,
+    "physical_concepts": 8,
+    "chemical_concepts": 6,
+    "biological_concepts": 6,
+    "computer_science_concepts": 8,
+    "philosophical_concepts": 7,
+    "psychological_concepts": 5,
+    "historical_figures": 10
+  }
+}

@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Eidolon - Performance Canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            overflow: hidden;
+            cursor: grab;
+            font-family: 'Courier New', monospace;
+        }
+
+        body:active {
+            cursor: grabbing;
+        }
+
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        #stats {
+            position: fixed;
+            top: 60px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            color: #00ff88;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 100;
+        }
+
+        #menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid #333;
+            padding: 8px 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            z-index: 200;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .agent-status-indicators {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .agent-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .agent-indicator.inactive {
+            background: rgba(102,102,102,0.3);
+            color: #666;
+            border: 1px solid #333;
+        }
+
+        .agent-indicator.available {
+            background: rgba(255,170,0,0.2);
+            color: #ffaa00;
+            border: 1px solid #ffaa00;
+        }
+
+        .agent-indicator.active {
+            background: rgba(0,255,136,0.3);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .agent-indicator:hover {
+            transform: scale(1.05);
+        }
+
+        .agent-indicator .agent-name {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .agent-indicator .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .menu-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .menu-button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #333;
+            color: #e0e0e0;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 11px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .menu-button:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: #555;
+        }
+
+        .menu-button.active {
+            background: rgba(0,100,255,0.3);
+            border-color: #0066ff;
+        }
+
+        .menu-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0,0,0,0.95);
+            border: 1px solid #333;
+            border-radius: 4px;
+            min-width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 201;
+            display: none;
+            margin-top: 2px;
+        }
+
+        .menu-content.show {
+            display: block;
+        }
+
+        .menu-header {
+            padding: 10px 15px;
+            background: rgba(0,100,255,0.1);
+            border-bottom: 1px solid #333;
+            font-weight: bold;
+            color: #0066ff;
+            font-size: 12px;
+        }
+
+        .menu-section {
+            padding: 15px;
+        }
+
+        .menu-section-title {
+            color: #ffaa00;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 11px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+
+
+
+
+        .agent-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            border-left: 3px solid #333;
+        }
+
+        .agent-status.active {
+            border-left-color: #00ff88;
+            background: rgba(0,255,136,0.1);
+        }
+
+        .agent-status.available {
+            border-left-color: #ffaa00;
+            background: rgba(255,170,0,0.1);
+        }
+
+        .agent-status.inactive {
+            border-left-color: #666;
+            background: rgba(102,102,102,0.1);
+        }
+
+        .agent-info {
+            flex: 1;
+        }
+
+        .agent-name {
+            color: #e0e0e0;
+            font-weight: bold;
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+
+        .agent-type {
+            color: #888;
+            font-size: 9px;
+        }
+
+        .agent-strain {
+            color: #ffaa00;
+            font-size: 9px;
+        }
+
+        .agent-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        .agent-btn {
+            background: #333;
+            border: 1px solid #555;
+            color: #e0e0e0;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 9px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .agent-btn:hover {
+            background: #555;
+            border-color: #777;
+        }
+
+        .agent-btn.start {
+            background: #1a4d1a;
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .agent-btn.start:hover {
+            background: #2a6d2a;
+        }
+
+        .agent-btn.stop {
+            background: #4d1a1a;
+            border-color: #ff4444;
+            color: #ff4444;
+        }
+
+        .agent-btn.stop:hover {
+            background: #6d2a2a;
+        }
+
+        .agent-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: rgba(255,170,0,0.1);
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        .agent-summary-item {
+            text-align: center;
+        }
+
+        .agent-summary-label {
+            color: #888;
+            font-size: 8px;
+            margin-bottom: 2px;
+        }
+
+        .agent-summary-value {
+            color: #ffaa00;
+            font-weight: bold;
+        }
+
+        .config-section {
+            display: block;
+        }
+
+        .config-section.collapsed {
+            display: none;
+        }
+
+        .category-header {
+            color: #ffaa00;
+            font-weight: bold;
+            margin: 8px 0 4px 0;
+            cursor: pointer;
+            user-select: none;
+            font-size: 11px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 2px;
+        }
+
+        .category-content {
+            display: block;
+            margin-left: 8px;
+        }
+
+        .category-content.collapsed {
+            display: none;
+        }
+
+        .control-group {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-group label {
+            color: #00ff88;
+            font-size: 10px;
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+
+        .control-group input[type="range"] {
+            flex: 1;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            padding: 2px;
+            font-size: 10px;
+            height: 16px;
+        }
+
+        .control-group input[type="checkbox"] {
+            margin: 0;
+            width: auto;
+        }
+
+        .control-value {
+            color: #ffaa00;
+            font-size: 9px;
+            min-width: 40px;
+            text-align: right;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .control-value input {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #ffaa00;
+            font-size: 9px;
+            width: 40px;
+            text-align: right;
+            padding: 1px;
+            font-family: monospace;
+        }
+
+        .state-indicator {
+            background: #2a2a2a;
+            color: #00ff88;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #00ff88;
+        }
+
+        .state-button {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 2px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .state-button:hover {
+            background: #3a3a3a;
+            border-color: #666;
+        }
+
+        .state-button.active {
+            background: #00ff88;
+            color: #000;
+            border-color: #00ff88;
+        }
+
+        .task-button {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 2px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .task-button:hover {
+            background: #3a3a3a;
+            border-color: #666;
+        }
+
+        #bottom-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.9);
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 100;
+            height: 60px;
+            transition: height 0.3s ease;
+            display: none; /* DISABLED: Hide bottom panel */
+        }
+
+        #bottom-panel.expanded {
+            height: 200px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            height: 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        #terminal-input:focus {
+            outline: none;
+            border-color: #ffaa00;
+            cursor: text;
+        }
+
+        #bottom-panel.expanded #terminal-input {
+            border-color: #ffcc44;
+            background: #2a2a2a;
+        }
+
+        .config-title {
+            color: #00ff88;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .terminal-section {
+            padding: 15px;
+            height: calc(100% - 80px);
+            overflow: hidden;
+        }
+
+        .help-text {
+            color: #888;
+            font-size: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        #terminal-output {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 8px;
+            font-size: 11px;
+            color: #e0e0e0;
+            height: 0;
+            overflow: hidden;
+            white-space: pre-wrap;
+            transition: height 0.3s ease;
+            margin-top: 10px;
+        }
+
+        #terminal-output.expanded {
+            height: 120px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        #terminal-input {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            padding: 8px;
+            font-family: monospace;
+            font-size: 11px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 15px;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+            position: relative;
+            bottom: 48px; /* Move up by 2 inches (48px) */
+            display: none; /* DISABLED: Hide input field */
+        }
+
+        #terminal-input.hidden {
+            display: none;
+        }
+
+        .input-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            padding: 8px 12px;
+            font-family: monospace;
+            font-size: 11px;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 1000;
+            display: none; /* DISABLED: Hide toggle button */
+        }
+
+        .input-toggle:hover {
+            background: #2a2a2a;
+            border-color: #ffaa00;
+        }
+
+        #new-bottom-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.9);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 100;
+            min-height: 200px;
+            max-height: 80vh;
+            resize: vertical;
+            overflow: hidden;
+        }
+
+        .terminal-resize-handle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255,170,0,0.3);
+            cursor: ns-resize;
+            border-radius: 8px 8px 0 0;
+            transition: background 0.2s ease;
+        }
+
+        .terminal-resize-handle:hover {
+            background: rgba(255,170,0,0.6);
+        }
+
+        .terminal-resize-handle:active {
+            background: rgba(255,170,0,0.8);
+        }
+
+        #new-terminal-input {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 14px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #new-terminal-input:focus {
+            outline: none;
+            border-color: #ffaa00;
+        }
+
+        #new-terminal-input::placeholder {
+            color: #888;
+        }
+
+        #new-terminal-output {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #e0e0e0;
+            height: calc(100% - 80px);
+            overflow-y: auto;
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #new-terminal-output::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #new-terminal-output::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        #new-terminal-output::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        #new-terminal-output::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <div id="menu-bar">
+        <div class="menu-dropdown">
+            <button class="menu-button" onclick="toggleMenu('agent-menu')">
+                🤖 Agent Control <span class="menu-arrow">▼</span>
+            </button>
+            <div class="menu-content" id="agent-menu">
+                <div class="menu-header">Agent Control</div>
+                <div class="menu-section">
+                    <div class="menu-section-title">Agent Summary</div>
+                    <div class="agent-summary">
+                        <div class="agent-summary-item">
+                            <div class="agent-summary-label">Total</div>
+                            <div class="agent-summary-value" id="agent-total">0</div>
+                        </div>
+                        <div class="agent-summary-item">
+                            <div class="agent-summary-label">Active</div>
+                            <div class="agent-summary-value" id="agent-active">0</div>
+                        </div>
+                        <div class="agent-summary-item">
+                            <div class="agent-summary-label">Available</div>
+                            <div class="agent-summary-value" id="agent-available">0</div>
+                        </div>
+                        <div class="agent-summary-item">
+                            <div class="agent-summary-label">Inactive</div>
+                            <div class="agent-summary-value" id="agent-inactive">0</div>
+                        </div>
+                    </div>
+                    <div id="agent-list">
+                        <!-- Agent status items will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-dropdown">
+            <button class="menu-button" onclick="toggleMenu('system-menu')">
+                🌙 System State <span class="menu-arrow">▼</span>
+            </button>
+            <div class="menu-content" id="system-menu">
+                <div class="menu-header">System State Control</div>
+                <div class="menu-section">
+                    <div class="menu-section-title">🔄 State</div>
+                    <div class="control-group">
+                        <label>Current State</label>
+                        <div class="state-indicator" id="current-state">Wake</div>
+                    </div>
+                    <div class="control-group">
+                        <button class="state-button" onclick="setSystemState('wake')" id="wake-button">
+                            ☀️ Wake
+                        </button>
+                        <button class="state-button" onclick="setSystemState('dream')" id="dream-button">
+                            🌙 Dream
+                        </button>
+                        <button class="state-button" onclick="setSystemState('sleep')" id="sleep-button">
+                            😴 Sleep
+                        </button>
+                    </div>
+                    <div class="menu-section-title">🎯 Autonomous Tasks</div>
+                    <div class="control-group">
+                        <button class="task-button" onclick="triggerAutonomousTasks()">
+                            🚀 Trigger Dream Tasks
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-dropdown">
+            <button class="menu-button" onclick="toggleMenu('config-menu')">
+                ⚙️ Configuration <span class="menu-arrow">▼</span>
+            </button>
+            <div class="menu-content" id="config-menu">
+                <div class="menu-header">Configuration</div>
+                <div class="menu-section">
+                    <div class="menu-section-title">📊 View</div>
+                    <div class="control-group">
+                        <label>Zoom Level</label>
+                        <input type="range" id="zoom-slider" min="0.1" max="5" step="0.1" value="1">
+                        <div class="control-value" id="zoom-value" onclick="editValue('zoom-value', 'zoom-slider', 'x')">1.0x</div>
+                    </div>
+                    <div class="control-group">
+                        <label>Node Size</label>
+                        <input type="range" id="node-size" min="0.5" max="3" step="0.1" value="1">
+                        <div class="control-value" id="node-size-value" onclick="editValue('node-size-value', 'node-size')">1.0</div>
+                    </div>
+                    <div class="control-group">
+                        <label>Recent Changes</label>
+                        <input type="range" id="recent-changes" min="100" max="2000" step="100" value="1000">
+                        <div class="control-value" id="recent-changes-value" onclick="editValue('recent-changes-value', 'recent-changes')">1000</div>
+                    </div>
+                    <div class="control-group">
+                        <label>Show Nodes</label>
+                        <input type="checkbox" id="show-nodes" checked>
+                    </div>
+                    <div class="control-group">
+                        <label>Show Connections</label>
+                        <input type="checkbox" id="show-connections" checked>
+                    </div>
+                    <div class="control-group">
+                        <label>Show Verified</label>
+                        <input type="checkbox" id="show-verified" checked>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <div class="menu-section-title">⚡ Physics</div>
+                    <div class="control-group">
+                        <label>Attraction</label>
+                        <input type="range" id="attraction-force" min="0" max="2" step="0.1" value="0.3">
+                        <div class="control-value" id="attraction-value" onclick="editValue('attraction-value', 'attraction-force')">0.3</div>
+                    </div>
+                    <div class="control-group">
+                        <label>Repulsion</label>
+                        <input type="range" id="repulsion-force" min="0" max="2" step="0.1" value="0.8">
+                        <div class="control-value" id="repulsion-value" onclick="editValue('repulsion-value', 'repulsion-force')">0.8</div>
+                    </div>
+                    <div class="control-group">
+                        <label>Damping</label>
+                        <input type="range" id="damping" min="0.8" max="0.99" step="0.01" value="0.95">
+                        <div class="control-value" id="damping-value" onclick="editValue('damping-value', 'damping')">0.95</div>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <div class="menu-section-title">🚀 Performance</div>
+                    <div class="control-group">
+                        <label>Conn Limit</label>
+                        <input type="range" id="connection-limit" min="100" max="5000" step="100" value="1000">
+                        <div class="control-value" id="connection-limit-value" onclick="editValue('connection-limit-value', 'connection-limit')">1000</div>
+                    </div>
+                    <div class="control-group">
+                        <label>Rotation</label>
+                        <input type="range" id="rotation-speed" min="0" max="0.01" step="0.0001" value="0.001">
+                        <div class="control-value" id="rotation-speed-value" onclick="editValue('rotation-speed-value', 'rotation-speed')">0.001</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agent-status-indicators" id="agent-status-indicators">
+            <!-- Agent status indicators will be populated here -->
+        </div>
+    </div>
+
+    <div id="stats">
+        <div>Nodes: <span id="node-count">0</span></div>
+        <div>Connections: <span id="connection-count">0</span></div>
+        <div>Verified Thoughts: <span id="verified-count">0</span></div>
+        <div>FPS: <span id="fps">0</span></div>
+        <div>Zoom: <span id="zoom-level">1.0x</span></div>
+        <div>Strain Range: <span id="strain-range">0-0</span></div>
+    </div>
+
+    <div id="bottom-panel">
+        <div class="panel-header">
+            <span class="panel-title">Terminal</span>
+        </div>
+        <input type="text" id="terminal-input" placeholder="Enter command (type 'help' for commands)" onclick="toggleTerminal()">
+        <div class="terminal-section" id="terminal-section">
+            <div class="help-text">Commands: help, clear, nodes, connections, strain, zoom, prompt &lt;text&gt;</div>
+            <div id="terminal-output" class="collapsed"></div>
+        </div>
+    </div>
+
+    <button class="input-toggle" onclick="toggleInputField()" title="Toggle input field visibility">⌨️</button>
+
+    <div id="new-bottom-panel">
+        <div class="terminal-resize-handle" title="Drag to resize terminal"></div>
+        <div id="new-terminal-output"></div>
+        <input type="text" id="new-terminal-input" placeholder="Enter command (type 'help' for commands)" onkeypress="handleNewTerminalInput(event)">
+    </div>
+
+    <script>
+        // Performance-optimized node visualization
+        class PerformanceCanvas {
+            constructor() {
+                this.canvas = document.getElementById('canvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.nodes = [];
+                this.connections = [];
+                this.verifiedConnections = [];
+                this.attractionForce = 0.3;
+                this.repulsionForce = 0.8; // Increased from 0.2 to make repulsion more visible
+                this.damping = 0.95;
+                this.nodeSize = 1;
+                this.connectionLimit = 1000;
+                this.zoom = 1.0;
+                this.showNodes = true;
+                this.showConnections = true;
+                this.showVerified = true;
+                this.lastTime = 0;
+                this.frameCount = 0;
+                this.fps = 0;
+                this.rotationAngle = 0;
+                this.rotationSpeed = 0.001;
+                this.recentChangesLimit = 1000;
+                
+                this.setupCanvas();
+                this.setupControls();
+                this.setupTerminal();
+                this.loadData();
+                this.animate();
+                
+                // Welcome message
+                printToTerminal('Performance Canvas loaded successfully');
+                printToTerminal('Type "help" for available commands');
+            }
+
+            setupCanvas() {
+                this.resizeCanvas();
+                window.addEventListener('resize', () => this.resizeCanvas());
+            }
+
+            resizeCanvas() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+                this.width = this.canvas.width;
+                this.height = this.canvas.height;
+            }
+
+            setupControls() {
+                // Zoom level
+                document.getElementById('zoom-slider').addEventListener('input', (e) => {
+                    this.zoom = parseFloat(e.target.value);
+                    document.getElementById('zoom-value').textContent = this.zoom.toFixed(1) + 'x';
+                    document.getElementById('zoom-level').textContent = this.zoom.toFixed(1) + 'x';
+                });
+                
+                // Attraction force
+                document.getElementById('attraction-force').addEventListener('input', (e) => {
+                    this.attractionForce = parseFloat(e.target.value);
+                    document.getElementById('attraction-value').textContent = this.attractionForce.toFixed(1);
+                });
+                
+                // Repulsion force
+                document.getElementById('repulsion-force').addEventListener('input', (e) => {
+                    this.repulsionForce = parseFloat(e.target.value);
+                    document.getElementById('repulsion-value').textContent = this.repulsionForce.toFixed(1);
+                });
+                
+                // Damping
+                document.getElementById('damping').addEventListener('input', (e) => {
+                    this.damping = parseFloat(e.target.value);
+                    document.getElementById('damping-value').textContent = this.damping.toFixed(2);
+                });
+                
+                // Node size
+                document.getElementById('node-size').addEventListener('input', (e) => {
+                    this.nodeSize = parseFloat(e.target.value);
+                    document.getElementById('node-size-value').textContent = this.nodeSize.toFixed(1);
+                });
+                
+                // Connection limit
+                document.getElementById('connection-limit').addEventListener('input', (e) => {
+                    this.connectionLimit = parseInt(e.target.value);
+                    document.getElementById('connection-limit-value').textContent = this.connectionLimit;
+                    this.createStrainConnections();
+                });
+                
+                // Show nodes
+                document.getElementById('show-nodes').addEventListener('change', (e) => {
+                    this.showNodes = e.target.checked;
+                });
+                
+                // Show connections
+                document.getElementById('show-connections').addEventListener('change', (e) => {
+                    this.showConnections = e.target.checked;
+                });
+                
+                // Show verified thoughts
+                document.getElementById('show-verified').addEventListener('change', (e) => {
+                    this.showVerified = e.target.checked;
+                });
+                
+                // Rotation speed
+                document.getElementById('rotation-speed').addEventListener('input', (e) => {
+                    this.rotationSpeed = parseFloat(e.target.value);
+                    document.getElementById('rotation-speed-value').textContent = this.rotationSpeed.toFixed(4);
+                });
+                
+                // Recent changes limit
+                document.getElementById('recent-changes').addEventListener('input', (e) => {
+                    this.recentChangesLimit = parseInt(e.target.value);
+                    document.getElementById('recent-changes-value').textContent = this.recentChangesLimit;
+                    this.applyRecentChangesFilter();
+                });
+            }
+
+            setupTerminal() {
+                const input = document.getElementById('terminal-input');
+                input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.handleCommand(input.value);
+                        input.value = '';
+                    }
+                });
+                
+                // Prevent toggle when clicking on input (for typing)
+                input.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+
+            handleCommand(cmd) {
+                const command = cmd.toLowerCase().trim();
+                console.log('Command:', command);
+                
+                // Check if it's a prompt command
+                if (command.startsWith('prompt ')) {
+                    const prompt = cmd.substring(7); // Remove 'prompt ' prefix
+                    this.sendPromptToAgent(prompt);
+                    return;
+                }
+                
+                switch(command) {
+                    case 'help':
+                        printToTerminal('Available Commands:');
+                        printToTerminal('- help: Show this help');
+                        printToTerminal('- clear: Clear canvas');
+                        printToTerminal('- nodes: Toggle nodes');
+                        printToTerminal('- connections: Toggle connections');
+                        printToTerminal('- strain: Show strain info');
+                        printToTerminal('- zoom: Reset zoom');
+                        printToTerminal('- rotate: Toggle rotation');
+                        printToTerminal('- prompt <text>: Send prompt to foreground agent');
+                        break;
+                    case 'clear':
+                        this.connections = [];
+                        this.verifiedConnections = [];
+                        this.createStrainConnections();
+                        printToTerminal('Canvas cleared');
+                        break;
+                    case 'nodes':
+                        this.showNodes = !this.showNodes;
+                        document.getElementById('show-nodes').checked = this.showNodes;
+                        printToTerminal(`Nodes ${this.showNodes ? 'shown' : 'hidden'}`);
+                        break;
+                    case 'connections':
+                        this.showConnections = !this.showConnections;
+                        document.getElementById('show-connections').checked = this.showConnections;
+                        printToTerminal(`Connections ${this.showConnections ? 'shown' : 'hidden'}`);
+                        break;
+                    case 'strain':
+                        const strains = this.nodes.map(n => n.strain);
+                        const avg = strains.reduce((a, b) => a + b, 0) / strains.length;
+                        printToTerminal(`Strain Info:`);
+                        printToTerminal(`- Average: ${avg.toFixed(3)}`);
+                        printToTerminal(`- Min: ${Math.min(...strains).toFixed(3)}`);
+                        printToTerminal(`- Max: ${Math.max(...strains).toFixed(3)}`);
+                        break;
+                    case 'zoom':
+                        this.zoom = 1.0;
+                        document.getElementById('zoom-slider').value = 1.0;
+                        document.getElementById('zoom-value').textContent = '1.0x';
+                        document.getElementById('zoom-level').textContent = '1.0x';
+                        printToTerminal('Zoom reset to 1.0x');
+                        break;
+                    case 'rotate':
+                        this.rotationSpeed = this.rotationSpeed === 0 ? 0.001 : 0;
+                        document.getElementById('rotation-speed').value = this.rotationSpeed;
+                        document.getElementById('rotation-speed-value').textContent = this.rotationSpeed.toFixed(4);
+                        printToTerminal(`Rotation ${this.rotationSpeed > 0 ? 'enabled' : 'disabled'}`);
+                        break;
+                    default:
+                        // If it's not a recognized command, treat it as a prompt
+                        this.sendPromptToAgent(cmd);
+                }
+            }
+
+            async sendPromptToAgent(prompt) {
+                try {
+                    console.log('Sending prompt to agent:', prompt);
+                    printToTerminal(`Sending prompt: ${prompt}`);
+                    
+                    // Show sending status in terminal
+                    const terminalInput = document.getElementById('terminal-input');
+                    const originalPlaceholder = terminalInput.placeholder;
+                    terminalInput.placeholder = 'Sending prompt...';
+                    terminalInput.disabled = true;
+                    
+                    // Send prompt to the agent visualization server
+                    const response = await fetch('http://localhost:3001/api/send-prompt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            prompt: prompt,
+                            timestamp: new Date().toISOString()
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        console.log('Agent response:', result);
+                        
+                        // Show response in terminal output
+                        printToTerminal(`Agent: ${result.response || 'Processing...'}`);
+                        
+                        // Clear placeholder
+                        terminalInput.placeholder = originalPlaceholder;
+                    } else {
+                        console.error('Failed to send prompt:', response.statusText);
+                        printToTerminal(`Error: Failed to send prompt - ${response.statusText}`);
+                        
+                        terminalInput.placeholder = originalPlaceholder;
+                    }
+                } catch (error) {
+                    console.error('Error sending prompt:', error);
+                    printToTerminal('Error: Cannot connect to agent server');
+                    
+                    terminalInput.placeholder = originalPlaceholder;
+                } finally {
+                    const terminalInput = document.getElementById('terminal-input');
+                    terminalInput.disabled = false;
+                }
+            }
+
+            async loadData() {
+                try {
+                    const response = await fetch('/api/graph/data');
+                    const data = await response.json();
+                    
+                    // Convert to optimized format
+                    this.nodes = data.nodes.map(node => ({
+                        id: node.id,
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        vx: 0,
+                        vy: 0,
+                        strain: node.strain.amplitude || 0.5,
+                        type: node.type || 'concept',
+                        connectionCount: 0,
+                        verified: false
+                    }));
+
+                    // Create connections based on strain relationships
+                    this.createStrainConnections();
+                    
+                    // Add verified connections from API
+                    if (data.verified_connections) {
+                        for (const connection of data.verified_connections) {
+                            const fromIndex = this.nodes.findIndex(n => n.id === connection.from);
+                            const toIndex = this.nodes.findIndex(n => n.id === connection.to);
+                            
+                            if (fromIndex !== -1 && toIndex !== -1) {
+                                const verifiedConnection = {
+                                    from: fromIndex,
+                                    to: toIndex,
+                                    strain: connection.strain || 0.1,
+                                    type: 'attraction',
+                                    verified: true,
+                                    thought_id: connection.thought_id
+                                };
+                                
+                                this.verifiedConnections.push(verifiedConnection);
+                                this.nodes[fromIndex].connectionCount++;
+                                this.nodes[toIndex].connectionCount++;
+                            }
+                        }
+                    }
+                    
+                    this.updateStats();
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                    this.createSampleData();
+                }
+            }
+
+            createStrainConnections() {
+                this.connections = [];
+                
+                // Reset connection counts
+                for (const node of this.nodes) {
+                    node.connectionCount = 0;
+                }
+                
+                // Use spatial partitioning to limit connections
+                const gridSize = 100;
+                const grid = {};
+                
+                // Assign nodes to grid cells
+                for (let i = 0; i < this.nodes.length; i++) {
+                    const node = this.nodes[i];
+                    const gridX = Math.floor(node.x / gridSize);
+                    const gridY = Math.floor(node.y / gridSize);
+                    const key = `${gridX},${gridY}`;
+                    
+                    if (!grid[key]) grid[key] = [];
+                    grid[key].push(i);
+                }
+                
+                // Create connections only between nearby nodes
+                let connectionCount = 0;
+                let attractionCount = 0;
+                let repulsionCount = 0;
+                
+                for (const cellKey in grid) {
+                    const cell = grid[cellKey];
+                    
+                    for (let i = 0; i < cell.length && connectionCount < this.connectionLimit; i++) {
+                        for (let j = i + 1; j < cell.length && connectionCount < this.connectionLimit; j++) {
+                            const nodeA = this.nodes[cell[i]];
+                            const nodeB = this.nodes[cell[j]];
+                            const strainDiff = Math.abs(nodeA.strain - nodeB.strain);
+                            
+                            // Connect nodes with similar strain (low strain relationships)
+                            if (strainDiff < 0.2) { // Reduced from 0.3 to create fewer attraction connections
+                                const connection = {
+                                    from: cell[i],
+                                    to: cell[j],
+                                    strain: strainDiff,
+                                    type: 'attraction',
+                                    verified: false
+                                };
+                                
+                                this.connections.push(connection);
+                                nodeA.connectionCount++;
+                                nodeB.connectionCount++;
+                                connectionCount++;
+                                attractionCount++;
+                            }
+                            // Create repulsion for nodes with very different strain (high strain relationships)
+                            else if (strainDiff > 0.5) { // Reduced from 0.7 to create more repulsion connections
+                                const connection = {
+                                    from: cell[i],
+                                    to: cell[j],
+                                    strain: strainDiff,
+                                    type: 'repulsion',
+                                    verified: false
+                                };
+                                
+                                this.connections.push(connection);
+                                nodeA.connectionCount++;
+                                nodeB.connectionCount++;
+                                connectionCount++;
+                                repulsionCount++;
+                            }
+                        }
+                    }
+                }
+                
+                console.log(`Created ${attractionCount} attraction and ${repulsionCount} repulsion connections`);
+                
+                // Calculate percentile-based opacity for connections
+                this.calculateConnectionPercentiles();
+                
+                this.updateStats();
+            }
+
+            calculateConnectionPercentiles() {
+                // Get all connection counts for percentile calculation
+                const connectionCounts = this.nodes.map(node => node.connectionCount).sort((a, b) => a - b);
+                
+                // Calculate percentiles for each node
+                for (const node of this.nodes) {
+                    const percentile = this.calculatePercentile(node.connectionCount, connectionCounts);
+                    node.connectionPercentile = percentile;
+                }
+            }
+
+            applyRecentChangesFilter() {
+                // Sort nodes by some change indicator (could be strain change, connection count change, etc.)
+                // For now, we'll use strain as a proxy for "recent activity"
+                const sortedNodes = [...this.nodes].sort((a, b) => b.strain - a.strain);
+                
+                // Keep only the most recent changes
+                const recentNodes = sortedNodes.slice(0, this.recentChangesLimit);
+                const recentNodeIds = new Set(recentNodes.map(n => n.id));
+                
+                // Filter connections to only include recent nodes
+                this.connections = this.connections.filter(conn => {
+                    const fromNode = this.nodes[conn.from];
+                    const toNode = this.nodes[conn.to];
+                    return recentNodeIds.has(fromNode.id) && recentNodeIds.has(toNode.id);
+                });
+                
+                // Filter verified connections
+                this.verifiedConnections = this.verifiedConnections.filter(conn => {
+                    const fromNode = this.nodes[conn.from];
+                    const toNode = this.nodes[conn.to];
+                    return recentNodeIds.has(fromNode.id) && recentNodeIds.has(toNode.id);
+                });
+                
+                // Update connection counts
+                for (const node of this.nodes) {
+                    node.connectionCount = 0;
+                }
+                
+                for (const conn of this.connections) {
+                    this.nodes[conn.from].connectionCount++;
+                    this.nodes[conn.to].connectionCount++;
+                }
+                
+                for (const conn of this.verifiedConnections) {
+                    this.nodes[conn.from].connectionCount++;
+                    this.nodes[conn.to].connectionCount++;
+                }
+                
+                this.calculateConnectionPercentiles();
+            }
+
+            calculatePercentile(value, sortedArray) {
+                if (sortedArray.length === 0) return 0;
+                
+                const index = sortedArray.findIndex(x => x >= value);
+                if (index === -1) return 100;
+                
+                return (index / sortedArray.length) * 100;
+            }
+
+            createSampleData() {
+                // Create sample nodes for testing
+                this.nodes = [];
+                for (let i = 0; i < 2000; i++) {
+                    this.nodes.push({
+                        id: `node_${i}`,
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        vx: 0,
+                        vy: 0,
+                        strain: Math.random(),
+                        type: 'concept',
+                        connectionCount: 0,
+                        verified: false
+                    });
+                }
+                this.createStrainConnections();
+                this.updateStats();
+            }
+
+            updateStats() {
+                // Filter nodes with at least 5 connections for display
+                const visibleNodes = this.nodes.filter(node => node.connectionCount >= 5);
+                
+                document.getElementById('node-count').textContent = `${visibleNodes.length}/${this.nodes.length}`;
+                document.getElementById('connection-count').textContent = this.connections.length;
+                document.getElementById('verified-count').textContent = this.verifiedConnections.length;
+                
+                const strains = this.nodes.map(n => n.strain);
+                const minStrain = Math.min(...strains);
+                const maxStrain = Math.max(...strains);
+                document.getElementById('strain-range').textContent = 
+                    `${minStrain.toFixed(2)}-${maxStrain.toFixed(2)}`;
+            }
+
+            calculateCenter() {
+                // Calculate the center of all visible nodes (boundless canvas)
+                const visibleNodes = this.nodes.filter(node => node.connectionCount >= 5);
+                if (visibleNodes.length === 0) return { x: 0, y: 0 }; // Center at origin for boundless canvas
+                
+                let sumX = 0, sumY = 0;
+                for (const node of visibleNodes) {
+                    sumX += node.x;
+                    sumY += node.y;
+                }
+                
+                return {
+                    x: sumX / visibleNodes.length,
+                    y: sumY / visibleNodes.length
+                };
+            }
+
+            applyPhysics() {
+                // Apply attraction/repulsion forces
+                for (const connection of this.connections) {
+                    const nodeA = this.nodes[connection.from];
+                    const nodeB = this.nodes[connection.to];
+                    
+                    const dx = nodeB.x - nodeA.x;
+                    const dy = nodeB.y - nodeA.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance > 0 && distance < 200) { // Limit force range
+                        const force = connection.type === 'attraction' 
+                            ? this.attractionForce / (distance * distance)
+                            : -this.repulsionForce / (distance * distance);
+                        
+                        const fx = (dx / distance) * force;
+                        const fy = (dy / distance) * force;
+                        
+                        nodeA.vx -= fx;
+                        nodeA.vy -= fy;
+                        nodeB.vx += fx;
+                        nodeB.vy += fy;
+                    }
+                }
+
+                // Apply damping and update positions (no boundary constraints)
+                for (const node of this.nodes) {
+                    node.vx *= this.damping;
+                    node.vy *= this.damping;
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    
+                    // No boundary constraints - nodes can move freely
+                }
+            }
+
+            render() {
+                // Clear canvas
+                this.ctx.fillStyle = '#0a0a0a';
+                this.ctx.fillRect(0, 0, this.width, this.height);
+                
+                // Calculate center of visible nodes
+                const center = this.calculateCenter();
+                
+                // Apply transformations: center, zoom, and rotation
+                this.ctx.save();
+                this.ctx.translate(this.width / 2, this.height / 2);
+                this.ctx.scale(this.zoom, this.zoom);
+                this.ctx.rotate(this.rotationAngle);
+                this.ctx.translate(-center.x, -center.y);
+                
+                // Draw verified connections first (constellation effect)
+                if (this.showVerified && this.showConnections) {
+                    this.ctx.strokeStyle = '#00ffff'; // Solid teal
+                    this.ctx.lineWidth = 1.5;
+                    for (const connection of this.verifiedConnections) {
+                        const nodeA = this.nodes[connection.from];
+                        const nodeB = this.nodes[connection.to];
+                        
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(nodeA.x, nodeA.y);
+                        this.ctx.lineTo(nodeB.x, nodeB.y);
+                        this.ctx.stroke();
+                    }
+                }
+                
+                // Draw regular connections with percentile-based opacity
+                if (this.showConnections) {
+                    for (const connection of this.connections) {
+                        const nodeA = this.nodes[connection.from];
+                        const nodeB = this.nodes[connection.to];
+                        
+                        // Calculate opacity based on percentile (fewer connections = higher percentile = higher opacity)
+                        const avgPercentile = (nodeA.connectionPercentile + nodeB.connectionPercentile) / 2;
+                        const opacity = avgPercentile / 100; // Convert percentile to 0-1 range
+                        
+                        // Don't render connections with opacity below 5%
+                        if (opacity < 0.05) continue;
+                        
+                        // Color connections based on type
+                        if (connection.type === 'attraction') {
+                            this.ctx.strokeStyle = `rgba(0, 255, 136, ${opacity})`;
+                            this.ctx.lineWidth = 0.5;
+                        } else {
+                            // Repulsion connections - make them more visible
+                            this.ctx.strokeStyle = `rgba(255, 100, 0, ${Math.max(opacity, 0.3)})`; // Brighter orange, minimum opacity
+                            this.ctx.lineWidth = 1.0; // Thicker lines for repulsion
+                        }
+                        
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(nodeA.x, nodeA.y);
+                        this.ctx.lineTo(nodeB.x, nodeB.y);
+                        this.ctx.stroke();
+                    }
+                }
+                
+                // Draw nodes as simple dots (only nodes with 5+ connections)
+                if (this.showNodes) {
+                    for (const node of this.nodes) {
+                        // Don't render nodes with less than 5 connections
+                        if (node.connectionCount < 5) continue;
+                        
+                        // Calculate opacity based on percentile (fewer connections = higher percentile = higher opacity)
+                        const opacity = node.connectionPercentile / 100; // Convert percentile to 0-1 range
+                        
+                        // Color based on strain level
+                        const intensity = Math.floor(node.strain * 255);
+                        this.ctx.fillStyle = `rgba(0, ${intensity}, ${intensity * 0.5}, ${opacity})`;
+                        
+                        this.ctx.beginPath();
+                        this.ctx.arc(node.x, node.y, this.nodeSize, 0, Math.PI * 2);
+                        this.ctx.fill();
+                    }
+                }
+                
+                // Restore transformation
+                this.ctx.restore();
+            }
+
+            animate(currentTime = 0) {
+                // Calculate FPS
+                this.frameCount++;
+                if (currentTime - this.lastTime >= 1000) {
+                    this.fps = this.frameCount;
+                    this.frameCount = 0;
+                    this.lastTime = currentTime;
+                    document.getElementById('fps').textContent = this.fps;
+                }
+
+                // Update rotation
+                this.rotationAngle += this.rotationSpeed;
+                
+                this.applyPhysics();
+                this.render();
+                
+                requestAnimationFrame((time) => this.animate(time));
+            }
+
+            // Additional methods for new terminal
+            clear() {
+                this.connections = [];
+                this.verifiedConnections = [];
+                this.createStrainConnections();
+            }
+
+            toggleNodes() {
+                this.showNodes = !this.showNodes;
+                document.getElementById('show-nodes').checked = this.showNodes;
+            }
+
+            toggleConnections() {
+                this.showConnections = !this.showConnections;
+                document.getElementById('show-connections').checked = this.showConnections;
+            }
+
+            resetZoom() {
+                this.zoom = 1.0;
+                document.getElementById('zoom-slider').value = 1.0;
+                document.getElementById('zoom-value').textContent = '1.0x';
+                document.getElementById('zoom-level').textContent = '1.0x';
+            }
+
+            toggleRotation() {
+                this.rotationSpeed = this.rotationSpeed === 0 ? 0.001 : 0;
+                document.getElementById('rotation-speed').value = this.rotationSpeed;
+                document.getElementById('rotation-speed-value').textContent = this.rotationSpeed.toFixed(4);
+            }
+        }
+
+        // Terminal toggle function
+        function toggleTerminal() {
+            const panel = document.getElementById('bottom-panel');
+            const output = document.getElementById('terminal-output');
+            const isExpanded = panel.classList.contains('expanded');
+            
+            if (isExpanded) {
+                panel.classList.remove('expanded');
+                output.classList.remove('expanded');
+            } else {
+                panel.classList.add('expanded');
+                output.classList.add('expanded');
+            }
+        }
+
+        // Input field toggle function
+        function toggleInputField() {
+            const input = document.getElementById('terminal-input');
+            const toggle = document.querySelector('.input-toggle');
+            const isHidden = input.classList.contains('hidden');
+            
+            if (isHidden) {
+                input.classList.remove('hidden');
+                toggle.textContent = '⌨️';
+                toggle.title = 'Hide input field';
+            } else {
+                input.classList.add('hidden');
+                toggle.textContent = '👁️';
+                toggle.title = 'Show input field';
+            }
+        }
+
+        // New terminal input handler
+        function handleNewTerminalInput(event) {
+            if (event.key === 'Enter') {
+                const input = event.target;
+                const command = input.value.trim();
+                
+                if (command) {
+                    // Print the command to output
+                    printToNewTerminal(`> ${command}`);
+                    // Process the command
+                    processCommand(command);
+                    input.value = ''; // Clear the input
+                }
+            }
+        }
+
+        // Print to new terminal output
+        function printToNewTerminal(message) {
+            const output = document.getElementById('new-terminal-output');
+            const timestamp = new Date().toLocaleTimeString();
+            output.textContent += `[${timestamp}] ${message}\n`;
+            output.scrollTop = output.scrollHeight; // Scroll to bottom
+        }
+
+        // Command processor for new terminal
+        function processCommand(command) {
+            const cmd = command.toLowerCase();
+            
+            if (cmd === 'help') {
+                printToNewTerminal('Available Commands:');
+                printToNewTerminal('- help: Show this help');
+                printToNewTerminal('- clear: Clear canvas');
+                printToNewTerminal('- nodes: Toggle nodes');
+                printToNewTerminal('- connections: Toggle connections');
+                printToNewTerminal('- strain: Show strain info');
+                printToNewTerminal('- zoom: Reset zoom');
+                printToNewTerminal('- rotate: Toggle rotation');
+                printToNewTerminal('- prompt <text>: Send prompt to foreground agent');
+            } else if (cmd === 'clear') {
+                if (window.canvas) {
+                    window.canvas.clear();
+                    printToNewTerminal('Canvas cleared');
+                }
+            } else if (cmd === 'nodes') {
+                if (window.canvas) {
+                    window.canvas.toggleNodes();
+                    printToNewTerminal(`Nodes ${window.canvas.showNodes ? 'shown' : 'hidden'}`);
+                }
+            } else if (cmd === 'connections') {
+                if (window.canvas) {
+                    window.canvas.toggleConnections();
+                    printToNewTerminal(`Connections ${window.canvas.showConnections ? 'shown' : 'hidden'}`);
+                }
+            } else if (cmd === 'strain') {
+                if (window.canvas) {
+                    const strains = window.canvas.nodes.map(n => n.strain).filter(s => s !== undefined);
+                    if (strains.length > 0) {
+                        const avg = strains.reduce((a, b) => a + b, 0) / strains.length;
+                        printToNewTerminal(`Strain Info:`);
+                        printToNewTerminal(`- Average: ${avg.toFixed(3)}`);
+                        printToNewTerminal(`- Min: ${Math.min(...strains).toFixed(3)}`);
+                        printToNewTerminal(`- Max: ${Math.max(...strains).toFixed(3)}`);
+                    }
+                }
+            } else if (cmd === 'zoom') {
+                if (window.canvas) {
+                    window.canvas.resetZoom();
+                    printToNewTerminal('Zoom reset to 1.0x');
+                }
+            } else if (cmd === 'rotate') {
+                if (window.canvas) {
+                    window.canvas.toggleRotation();
+                    printToNewTerminal(`Rotation ${window.canvas.rotationSpeed > 0 ? 'enabled' : 'disabled'}`);
+                }
+            } else if (command.startsWith('prompt ')) {
+                const prompt = command.substring(7);
+                sendPromptToAgent(prompt);
+            } else {
+                printToNewTerminal(`Unknown command: ${command}`);
+                printToNewTerminal('Type "help" for available commands');
+            }
+        }
+
+        // Terminal resize functionality
+        function setupTerminalResize() {
+            const terminalPanel = document.getElementById('new-bottom-panel');
+            const resizeHandle = document.querySelector('.terminal-resize-handle');
+            let isResizing = false;
+            let startY = 0;
+            let startHeight = 0;
+
+            resizeHandle.addEventListener('mousedown', function(e) {
+                isResizing = true;
+                startY = e.clientY;
+                startHeight = parseInt(document.defaultView.getComputedStyle(terminalPanel).height, 10);
+                document.body.style.cursor = 'ns-resize';
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (!isResizing) return;
+
+                const deltaY = startY - e.clientY;
+                const newHeight = Math.max(200, Math.min(window.innerHeight * 0.8, startHeight + deltaY));
+                terminalPanel.style.height = newHeight + 'px';
+            });
+
+            document.addEventListener('mouseup', function() {
+                if (isResizing) {
+                    isResizing = false;
+                    document.body.style.cursor = 'default';
+                }
+            });
+        }
+
+        // Initialize terminal resize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setupTerminalResize();
+            setupAgentStatusIndicators();
+        });
+
+        // Agent status indicators
+        function setupAgentStatusIndicators() {
+            updateAgentStatusIndicators();
+            // Update agent status every 2 seconds
+            setInterval(updateAgentStatusIndicators, 2000);
+        }
+
+        function updateAgentStatusIndicators() {
+            fetch('/api/agents')
+                .then(response => response.json())
+                .then(data => {
+                    const indicatorsContainer = document.getElementById('agent-status-indicators');
+                    indicatorsContainer.innerHTML = '';
+                    
+                    // Create indicators for each agent
+                    data.agents.forEach(agent => {
+                        const indicator = createAgentIndicator(agent);
+                        indicatorsContainer.appendChild(indicator);
+                    });
+                })
+                .catch(error => {
+                    console.error('Failed to update agent status:', error);
+                });
+        }
+
+        function createAgentIndicator(agent) {
+            const indicator = document.createElement('div');
+            indicator.className = `agent-indicator ${agent.state}`;
+            indicator.title = `${agent.id} (${agent.type}) - ${agent.state}`;
+            
+            const agentName = document.createElement('span');
+            agentName.className = 'agent-name';
+            agentName.textContent = getAgentDisplayName(agent.id);
+            
+            const statusDot = document.createElement('span');
+            statusDot.className = 'status-dot';
+            
+            indicator.appendChild(agentName);
+            indicator.appendChild(statusDot);
+            
+            // Add click handler to toggle agent
+            indicator.addEventListener('click', () => {
+                toggleAgentFromIndicator(agent.id, agent.state);
+            });
+            
+            return indicator;
+        }
+
+        function getAgentDisplayName(agentId) {
+            const displayNames = {
+                'eidolon': 'EIDOLON',
+                'stage_manager': 'STAGE',
+                'engineer': 'ENG',
+                'philosopher': 'PHIL',
+                'skeptic': 'SKEPT',
+                'dreamer': 'DREAM',
+                'investigator': 'INVEST',
+                'archivist': 'ARCH',
+                'linguist': 'LING'
+            };
+            return displayNames[agentId] || agentId.toUpperCase();
+        }
+
+        function toggleAgentFromIndicator(agentId, currentState) {
+            const action = currentState === 'active' ? 'stop' : 'start';
+            
+            fetch('/api/agents/toggle', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    agent_id: agentId,
+                    action: action
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Update indicators immediately
+                    updateAgentStatusIndicators();
+                    printToNewTerminal(`Agent ${agentId} ${action}ed`);
+                }
+            })
+            .catch(error => {
+                console.error('Failed to toggle agent:', error);
+                printToNewTerminal(`Error toggling agent ${agentId}`);
+            });
+        }
+
+        // Global sendPromptToAgent function for new terminal
+        async function sendPromptToAgent(prompt) {
+            try {
+                printToNewTerminal(`Sending prompt to agent: ${prompt}`);
+                
+                // Send prompt to the canvas server (same port as the UI)
+                const response = await fetch('/api/send-prompt', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    printToNewTerminal(`Agent response: ${result.response || 'Processing...'}`);
+                } else {
+                    printToNewTerminal(`Error: Failed to send prompt - ${response.statusText}`);
+                }
+            } catch (error) {
+                console.error('Error sending prompt:', error);
+                printToNewTerminal('Error: Cannot connect to agent server');
+            }
+        }
+
+        // Menu toggle function
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            const button = menu.previousElementSibling;
+            const arrow = button.querySelector('.menu-arrow');
+            
+            // Close all other menus first
+            const allMenus = document.querySelectorAll('.menu-content');
+            const allButtons = document.querySelectorAll('.menu-button');
+            const allArrows = document.querySelectorAll('.menu-arrow');
+            
+            allMenus.forEach(m => {
+                if (m.id !== menuId) {
+                    m.classList.remove('show');
+                }
+            });
+            
+            allButtons.forEach(b => {
+                if (b !== button) {
+                    b.classList.remove('active');
+                }
+            });
+            
+            allArrows.forEach(a => {
+                if (a !== arrow) {
+                    a.textContent = '▼';
+                }
+            });
+            
+            // Toggle current menu
+            const isOpen = menu.classList.contains('show');
+            if (isOpen) {
+                menu.classList.remove('show');
+                button.classList.remove('active');
+                arrow.textContent = '▼';
+            } else {
+                menu.classList.add('show');
+                button.classList.add('active');
+                arrow.textContent = '▲';
+                
+                // Load agent status when agent menu is opened
+                if (menuId === 'agent-menu') {
+                    loadAgentStatus();
+                }
+            }
+        }
+
+        // Terminal output function
+        function printToTerminal(message) {
+            const output = document.getElementById('terminal-output');
+            const timestamp = new Date().toLocaleTimeString();
+            output.textContent += `[${timestamp}] ${message}\n`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        // Close menus when clicking outside
+        document.addEventListener('click', function(event) {
+            const menuBar = document.getElementById('menu-bar');
+            const isClickInsideMenu = menuBar.contains(event.target);
+            
+            if (!isClickInsideMenu) {
+                // Close all menus
+                const allMenus = document.querySelectorAll('.menu-content');
+                const allButtons = document.querySelectorAll('.menu-button');
+                const allArrows = document.querySelectorAll('.menu-arrow');
+                
+                allMenus.forEach(m => m.classList.remove('show'));
+                allButtons.forEach(b => b.classList.remove('active'));
+                allArrows.forEach(a => a.textContent = '▼');
+            }
+        });
+
+        // Category toggle function
+        function toggleCategory(categoryId) {
+            const content = document.getElementById(categoryId + '-category');
+            content.classList.toggle('collapsed');
+        }
+
+        // Edit value function
+        function editValue(valueId, sliderId, suffix = '') {
+            const valueElement = document.getElementById(valueId);
+            const slider = document.getElementById(sliderId);
+            const currentValue = valueElement.textContent.replace(suffix, '');
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentValue;
+            input.style.cssText = 'background: #1a1a1a; border: 1px solid #333; color: #ffaa00; font-size: 9px; width: 40px; text-align: right; padding: 1px; font-family: monospace;';
+            
+            input.addEventListener('blur', function() {
+                const newValue = parseFloat(this.value);
+                if (!isNaN(newValue)) {
+                    // Update slider if within range, otherwise just update the value
+                    const min = parseFloat(slider.min);
+                    const max = parseFloat(slider.max);
+                    if (newValue >= min && newValue <= max) {
+                        slider.value = newValue;
+                    }
+                    valueElement.textContent = newValue + suffix;
+                    
+                    // Trigger change event on slider to update canvas
+                    slider.dispatchEvent(new Event('input'));
+                }
+                valueElement.style.display = 'block';
+            });
+            
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    this.blur();
+                }
+            });
+            
+            valueElement.style.display = 'none';
+            valueElement.parentNode.insertBefore(input, valueElement);
+            input.focus();
+            input.select();
+        }
+
+        // Agent Panel Functions
+        async function loadAgentStatus() {
+            try {
+                const response = await fetch('/api/agents');
+                const data = await response.json();
+                
+                // Update summary
+                document.getElementById('agent-total').textContent = data.total;
+                document.getElementById('agent-active').textContent = data.active;
+                document.getElementById('agent-available').textContent = data.available;
+                document.getElementById('agent-inactive').textContent = data.inactive;
+                
+                // Update agent list
+                const agentList = document.getElementById('agent-list');
+                agentList.innerHTML = '';
+                
+                data.agents.forEach(agent => {
+                    const agentElement = createAgentElement(agent);
+                    agentList.appendChild(agentElement);
+                });
+            } catch (error) {
+                console.error('Failed to load agent status:', error);
+                printToTerminal('Error: Failed to load agent status');
+            }
+        }
+
+        function createAgentElement(agent) {
+            const div = document.createElement('div');
+            div.className = `agent-status ${agent.state}`;
+            
+            const agentInfo = document.createElement('div');
+            agentInfo.className = 'agent-info';
+            
+            const agentName = document.createElement('div');
+            agentName.className = 'agent-name';
+            agentName.textContent = agent.id;
+            
+            const agentStatus = document.createElement('div');
+            agentStatus.className = 'agent-status-indicator';
+            agentStatus.textContent = agent.state.charAt(0).toUpperCase() + agent.state.slice(1);
+            
+            agentInfo.appendChild(agentName);
+            agentInfo.appendChild(agentStatus);
+            
+            const agentControls = document.createElement('div');
+            agentControls.className = 'agent-controls';
+            
+            if (agent.state === 'active') {
+                const stopBtn = document.createElement('button');
+                stopBtn.className = 'agent-btn stop';
+                stopBtn.textContent = '⏹';
+                stopBtn.title = 'Stop';
+                stopBtn.onclick = () => toggleAgent(agent.id, 'stop');
+                agentControls.appendChild(stopBtn);
+            } else {
+                const startBtn = document.createElement('button');
+                startBtn.className = 'agent-btn start';
+                startBtn.textContent = '▶';
+                startBtn.title = 'Start';
+                startBtn.onclick = () => toggleAgent(agent.id, 'start');
+                agentControls.appendChild(startBtn);
+            }
+            
+            div.appendChild(agentInfo);
+            div.appendChild(agentControls);
+            
+            return div;
+        }
+
+        async function toggleAgent(agentId, action) {
+            try {
+                const response = await fetch('/api/agents/toggle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        agent_id: agentId,
+                        action: action
+                    })
+                });
+                
+                if (response.ok) {
+                    printToTerminal(`Agent ${agentId} ${action}ed successfully`);
+                    loadAgentStatus(); // Refresh the display
+                } else {
+                    const error = await response.text();
+                    printToTerminal(`Error: ${error}`);
+                }
+            } catch (error) {
+                console.error('Failed to toggle agent:', error);
+                printToTerminal(`Error: Failed to ${action} agent ${agentId}`);
+            }
+        }
+
+        // Auto-refresh agent status every 5 seconds when panel is open
+        let agentRefreshInterval = null;
+        
+        function startAgentRefresh() {
+            if (agentRefreshInterval) return;
+            agentRefreshInterval = setInterval(() => {
+                const panel = document.getElementById('agent-panel');
+                if (!panel.classList.contains('collapsed')) {
+                    loadAgentStatus();
+                }
+            }, 5000);
+        }
+        
+        function stopAgentRefresh() {
+            if (agentRefreshInterval) {
+                clearInterval(agentRefreshInterval);
+                agentRefreshInterval = null;
+            }
+        }
+
+        // System State Control Functions
+        async function setSystemState(state) {
+            try {
+                const response = await fetch('/api/system/state', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ state: state })
+                });
+                
+                if (response.ok) {
+                    updateSystemStateUI(state);
+                    printToTerminal(`System state changed to: ${state}`);
+                } else {
+                    const error = await response.text();
+                    printToTerminal(`Error: ${error}`);
+                }
+            } catch (error) {
+                console.error('Failed to set system state:', error);
+                printToTerminal(`Error: Failed to set system state to ${state}`);
+            }
+        }
+
+        async function triggerAutonomousTasks() {
+            try {
+                const response = await fetch('/api/system/trigger-dream-tasks', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                if (response.ok) {
+                    printToTerminal('Autonomous dream tasks triggered');
+                } else {
+                    const error = await response.text();
+                    printToTerminal(`Error: ${error}`);
+                }
+            } catch (error) {
+                console.error('Failed to trigger autonomous tasks:', error);
+                printToTerminal('Error: Failed to trigger autonomous tasks');
+            }
+        }
+
+        function updateSystemStateUI(state) {
+            const currentState = document.getElementById('current-state');
+            const wakeButton = document.getElementById('wake-button');
+            const dreamButton = document.getElementById('dream-button');
+            const sleepButton = document.getElementById('sleep-button');
+            
+            // Update current state indicator
+            currentState.textContent = state.charAt(0).toUpperCase() + state.slice(1);
+            
+            // Update button states
+            wakeButton.classList.remove('active');
+            dreamButton.classList.remove('active');
+            sleepButton.classList.remove('active');
+            
+            if (state === 'wake') {
+                wakeButton.classList.add('active');
+            } else if (state === 'dream') {
+                dreamButton.classList.add('active');
+            } else if (state === 'sleep') {
+                sleepButton.classList.add('active');
+            }
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            window.canvas = new PerformanceCanvas();
+            startAgentRefresh();
+            
+            // Welcome message for new terminal
+            printToNewTerminal('New Terminal initialized');
+            printToNewTerminal('Type "help" for available commands');
+        });
+    </script>
+</body>
+</html> 

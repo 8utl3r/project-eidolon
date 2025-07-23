@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents - Project Eidolon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .agent-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .agent-card .card-body {
+            padding: 2rem;
+        }
+        .agent-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .agent-domain {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        .strain-bar {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            height: 20px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+        .strain-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ffa500);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        .keyword-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            margin: 0.2rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        .nav-link {
+            color: #6c757d;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+        }
+        .nav-link.active {
+            color: #667eea;
+            font-weight: bold;
+        }
+        .page-header {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>Project Eidolon
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/agents"><i class="fas fa-crown me-1"></i>Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entities"><i class="fas fa-cube me-1"></i>Entities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/relationships"><i class="fas fa-project-diagram me-1"></i>Relationships</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/strain-analysis"><i class="fas fa-chart-line me-1"></i>Strain Analysis</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="page-header">
+            <h1 class="display-4 mb-3">
+                <i class="fas fa-crown me-3"></i>Agent Thrones
+            </h1>
+            <p class="lead">Specialized AI agents with domain expertise and authority over specific entities</p>
+        </div>
+
+        <div class="row" id="agents-container">
+            <!-- Agents will be loaded here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load agents data
+        fetch('/api/agents')
+            .then(response => response.json())
+            .then(agents => {
+                const container = document.getElementById('agents-container');
+                
+                agents.forEach(agent => {
+                    const agentCard = document.createElement('div');
+                    agentCard.className = 'col-md-6 col-lg-4';
+                    
+                    const strainPercentage = (agent.current_strain / agent.max_strain) * 100;
+                    
+                    agentCard.innerHTML = `
+                        <div class="card agent-card">
+                            <div class="card-body">
+                                <div class="agent-name">${agent.agent}</div>
+                                <div class="agent-domain">${agent.domain}</div>
+                                
+                                <div class="mb-3">
+                                    <small>Current Strain</small>
+                                    <div class="strain-bar">
+                                        <div class="strain-fill" style="width: ${strainPercentage}%"></div>
+                                    </div>
+                                    <small>${agent.current_strain.toFixed(2)} / ${agent.max_strain.toFixed(2)}</small>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <small>Status: ${agent.is_active ? 'Active' : 'Inactive'}</small><br>
+                                    <small>Authority Level: ${agent.authority_level}</small>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <small>Keywords:</small><br>
+                                    ${agent.keywords.map(keyword => 
+                                        `<span class="keyword-badge">${keyword}</span>`
+                                    ).join('')}
+                                </div>
+                                
+                                <button class="btn btn-outline-light btn-sm" onclick="viewAgentRelationships('${agent.id}')">
+                                    <i class="fas fa-project-diagram me-1"></i>View Authority
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(agentCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading agents:', error);
+                document.getElementById('agents-container').innerHTML = 
+                    '<div class="col-12"><div class="alert alert-danger">Error loading agents data</div></div>';
+            });
+
+        function viewAgentRelationships(agentId) {
+            // Navigate to relationships page with agent filter
+            window.location.href = `/relationships?agent_id=${agentId}`;
+        }
+    </script>
+</body>
+</html> 

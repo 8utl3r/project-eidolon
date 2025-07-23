@@ -1,0 +1,93 @@
+{
+  "current_provider": "cursor",
+  "providers": {
+    "cursor": {
+      "name": "Cursor AI",
+      "description": "Using Cursor's built-in AI capabilities",
+      "enabled": true,
+      "config": {}
+    },
+    "openai": {
+      "name": "OpenAI API",
+      "description": "Using OpenAI GPT models via API",
+      "enabled": false,
+      "config": {
+        "api_key": "",
+        "model": "gpt-4",
+        "temperature": 0.7,
+        "max_tokens": 1000
+      }
+    },
+    "anthropic": {
+      "name": "Anthropic Claude",
+      "description": "Using Anthropic Claude via API",
+      "enabled": false,
+      "config": {
+        "api_key": "",
+        "model": "claude-3-sonnet-20240229",
+        "temperature": 0.7,
+        "max_tokens": 1000
+      }
+    },
+    "custom": {
+      "name": "Custom Models",
+      "description": "Using locally trained or custom AI models",
+      "enabled": false,
+      "config": {
+        "model_path": "./models/",
+        "model_type": "transformer",
+        "device": "cpu"
+      }
+    },
+    "simulated": {
+      "name": "Simulated AI",
+      "description": "Using simulated responses for testing",
+      "enabled": false,
+      "config": {}
+    }
+  },
+  "agent_configs": {
+    "mathematician": {
+      "specialization": "mathematical reasoning",
+      "response_style": "precise and analytical",
+      "domain_keywords": ["math", "calculation", "equation", "number", "formula"]
+    },
+    "skeptic": {
+      "specialization": "logical reasoning",
+      "response_style": "critical and questioning",
+      "domain_keywords": ["logic", "reasoning", "argument", "critical", "evidence"]
+    },
+    "dreamer": {
+      "specialization": "creative thinking",
+      "response_style": "imaginative and innovative",
+      "domain_keywords": ["creative", "imagination", "vision", "dream", "innovative"]
+    },
+    "investigator": {
+      "specialization": "research and exploration",
+      "response_style": "systematic and thorough",
+      "domain_keywords": ["research", "explore", "investigate", "discover", "analyze"]
+    },
+    "philosopher": {
+      "specialization": "philosophical reasoning",
+      "response_style": "reflective and ethical",
+      "domain_keywords": ["philosophy", "ethical", "meaning", "purpose", "moral"]
+    },
+    "archivist": {
+      "specialization": "knowledge preservation",
+      "response_style": "historical and contextual",
+      "domain_keywords": ["record", "memory", "archive", "store", "history"]
+    },
+    "stage_manager": {
+      "specialization": "coordination and synthesis",
+      "response_style": "integrative and orchestrated",
+      "domain_keywords": ["coordinate", "manage", "orchestrate", "synthesize"]
+    }
+  },
+  "coordination": {
+    "max_agents_per_query": 3,
+    "always_include_stage_manager": true,
+    "response_format": "structured",
+    "include_strain_info": true,
+    "include_related_entities": true
+  }
+} 

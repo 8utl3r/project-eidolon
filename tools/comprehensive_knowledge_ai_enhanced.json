@@ -1,0 +1,3230 @@
+{
+  "entities": [
+    {
+      "access_count": 20,
+      "created": "2024-01-01T00:00:00",
+      "description": "Basic operations: addition, subtraction, multiplication, division",
+      "entity_type": "concept_type",
+      "id": "arithmetic",
+      "modified": "2024-12-21T00:00:00",
+      "modified_at": "2025-07-21T12:19:16.412778",
+      "modified_by": "archivist",
+      "name": "Arithmetic",
+      "strain_amplitude": 0.1811939328000001,
+      "strain_frequency": 20,
+      "strain_resistance": 0.1
+    },
+    {
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of mathematical symbols and rules for manipulating them",
+      "entity_type": "concept_type",
+      "id": "algebra",
+      "modified": "2024-12-21T00:00:00",
+      "modified_at": "2025-07-21T12:19:16.412785",
+      "modified_by": "archivist",
+      "name": "Algebra",
+      "strain_amplitude": 0.17112760320000006,
+      "strain_frequency": 18,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of shapes, sizes, and spatial relationships",
+      "entity_type": "concept_type",
+      "id": "geometry",
+      "modified": "2024-12-21T00:00:00",
+      "modified_at": "2025-07-21T12:19:16.412791",
+      "modified_by": "archivist",
+      "name": "Geometry",
+      "strain_amplitude": 0.17716740096000008,
+      "strain_frequency": 16,
+      "strain_resistance": 0.15
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of continuous change through derivatives and integrals",
+      "entity_type": "concept_type",
+      "id": "calculus",
+      "modified": "2024-12-21T00:00:00",
+      "modified_at": "2025-07-21T12:19:16.412797",
+      "modified_by": "archivist",
+      "name": "Calculus",
+      "strain_amplitude": 0.15435038720000008,
+      "strain_frequency": 14,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Foundation of mathematics dealing with collections of objects",
+      "entity_type": "concept_type",
+      "id": "set_theory",
+      "modified": "2024-12-21T00:00:00",
+      "modified_at": "2025-07-21T12:19:16.412802",
+      "modified_by": "archivist",
+      "name": "Set Theory",
+      "strain_amplitude": 0.14596177920000006,
+      "strain_frequency": 12,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of integers and their properties",
+      "entity_type": "concept_type",
+      "id": "number_theory",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Number Theory",
+      "strain_amplitude": 0.89,
+      "strain_frequency": 15,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of uncertainty and random events",
+      "entity_type": "concept_type",
+      "id": "probability",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Probability",
+      "strain_amplitude": 0.83,
+      "strain_frequency": 13,
+      "strain_resistance": 0.35
+    },
+    {
+      "access_count": 17,
+      "created": "2024-01-01T00:00:00",
+      "description": "Collection, analysis, and interpretation of data",
+      "entity_type": "concept_type",
+      "id": "statistics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Statistics",
+      "strain_amplitude": 0.86,
+      "strain_frequency": 17,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of vectors, matrices, and linear transformations",
+      "entity_type": "concept_type",
+      "id": "linear_algebra",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Linear Algebra",
+      "strain_amplitude": 0.91,
+      "strain_frequency": 11,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 9,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of geometric properties preserved under continuous deformation",
+      "entity_type": "concept_type",
+      "id": "topology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Topology",
+      "strain_amplitude": 0.94,
+      "strain_frequency": 9,
+      "strain_resistance": 0.5
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of logical relationships between propositions",
+      "entity_type": "concept_type",
+      "id": "propositional_logic",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Propositional Logic",
+      "strain_amplitude": 0.88,
+      "strain_frequency": 16,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Extension of propositional logic with quantifiers and predicates",
+      "entity_type": "concept_type",
+      "id": "predicate_logic",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Predicate Logic",
+      "strain_amplitude": 0.92,
+      "strain_frequency": 12,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "description": "Logic dealing with necessity and possibility",
+      "entity_type": "concept_type",
+      "id": "modal_logic",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Modal Logic",
+      "strain_amplitude": 0.85,
+      "strain_frequency": 10,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "description": "Reasoning from specific observations to general conclusions",
+      "entity_type": "concept_type",
+      "id": "inductive_reasoning",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Inductive Reasoning",
+      "strain_amplitude": 0.8,
+      "strain_frequency": 18,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "description": "Reasoning from general principles to specific conclusions",
+      "entity_type": "concept_type",
+      "id": "deductive_reasoning",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Deductive Reasoning",
+      "strain_amplitude": 0.87,
+      "strain_frequency": 15,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Common errors in reasoning that undermine logic",
+      "entity_type": "concept_type",
+      "id": "fallacies",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Logical Fallacies",
+      "strain_amplitude": 0.75,
+      "strain_frequency": 14,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "Property of arguments where conclusion follows from premises",
+      "entity_type": "concept_type",
+      "id": "validity",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Logical Validity",
+      "strain_amplitude": 0.9,
+      "strain_frequency": 13,
+      "strain_resistance": 0.15
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "Property of arguments that are valid with true premises",
+      "entity_type": "concept_type",
+      "id": "soundness",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Logical Soundness",
+      "strain_amplitude": 0.93,
+      "strain_frequency": 11,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of motion and forces in macroscopic systems",
+      "entity_type": "concept_type",
+      "id": "mechanics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Classical Mechanics",
+      "strain_amplitude": 0.89,
+      "strain_frequency": 16,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of heat, energy, and their transformations",
+      "entity_type": "concept_type",
+      "id": "thermodynamics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Thermodynamics",
+      "strain_amplitude": 0.86,
+      "strain_frequency": 14,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of electric and magnetic fields and their interactions",
+      "entity_type": "concept_type",
+      "id": "electromagnetism",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Electromagnetism",
+      "strain_amplitude": 0.91,
+      "strain_frequency": 12,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "description": "Physics of matter and energy at atomic and subatomic scales",
+      "entity_type": "concept_type",
+      "id": "quantum_mechanics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Quantum Mechanics",
+      "strain_amplitude": 0.95,
+      "strain_frequency": 10,
+      "strain_resistance": 0.6
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "Einstein's theories of special and general relativity",
+      "entity_type": "concept_type",
+      "id": "relativity",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Relativity",
+      "strain_amplitude": 0.94,
+      "strain_frequency": 11,
+      "strain_resistance": 0.5
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of light and its interactions with matter",
+      "entity_type": "concept_type",
+      "id": "optics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Optics",
+      "strain_amplitude": 0.84,
+      "strain_frequency": 13,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of sound and mechanical waves",
+      "entity_type": "concept_type",
+      "id": "acoustics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Acoustics",
+      "strain_amplitude": 0.82,
+      "strain_frequency": 12,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 9,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of fluid flow and its properties",
+      "entity_type": "concept_type",
+      "id": "fluid_dynamics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Fluid Dynamics",
+      "strain_amplitude": 0.88,
+      "strain_frequency": 9,
+      "strain_resistance": 0.35
+    },
+    {
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "description": "Theory that matter is composed of discrete units called atoms",
+      "entity_type": "concept_type",
+      "id": "atomic_theory",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Atomic Theory",
+      "strain_amplitude": 0.9,
+      "strain_frequency": 15,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "description": "Tabular arrangement of chemical elements by atomic number",
+      "entity_type": "concept_type",
+      "id": "periodic_table",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Periodic Table",
+      "strain_amplitude": 0.85,
+      "strain_frequency": 18,
+      "strain_resistance": 0.15
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Attraction between atoms that enables formation of molecules",
+      "entity_type": "concept_type",
+      "id": "chemical_bonding",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Chemical Bonding",
+      "strain_amplitude": 0.87,
+      "strain_frequency": 14,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Processes that lead to chemical transformation of substances",
+      "entity_type": "concept_type",
+      "id": "reactions",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Chemical Reactions",
+      "strain_amplitude": 0.83,
+      "strain_frequency": 16,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of heat changes in chemical reactions",
+      "entity_type": "concept_type",
+      "id": "thermochemistry",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Thermochemistry",
+      "strain_amplitude": 0.81,
+      "strain_frequency": 11,
+      "strain_resistance": 0.35
+    },
+    {
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of rates of chemical reactions",
+      "entity_type": "concept_type",
+      "id": "kinetics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Chemical Kinetics",
+      "strain_amplitude": 0.84,
+      "strain_frequency": 10,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Theory that all living organisms are composed of cells",
+      "entity_type": "concept_type",
+      "id": "cell_theory",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Cell Theory",
+      "strain_amplitude": 0.88,
+      "strain_frequency": 16,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Change in heritable characteristics of biological populations over time",
+      "entity_type": "concept_type",
+      "id": "evolution",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Evolution",
+      "strain_amplitude": 0.92,
+      "strain_frequency": 14,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of genes, genetic variation, and heredity",
+      "entity_type": "concept_type",
+      "id": "genetics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Genetics",
+      "strain_amplitude": 0.89,
+      "strain_frequency": 15,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of interactions between organisms and their environment",
+      "entity_type": "concept_type",
+      "id": "ecology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Ecology",
+      "strain_amplitude": 0.85,
+      "strain_frequency": 13,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of functions and mechanisms in living systems",
+      "entity_type": "concept_type",
+      "id": "physiology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Physiology",
+      "strain_amplitude": 0.87,
+      "strain_frequency": 12,
+      "strain_resistance": 0.35
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of chemical processes within living organisms",
+      "entity_type": "concept_type",
+      "id": "biochemistry",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Biochemistry",
+      "strain_amplitude": 0.9,
+      "strain_frequency": 11,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 19,
+      "created": "2024-01-01T00:00:00",
+      "description": "Step-by-step procedures for solving problems",
+      "entity_type": "concept_type",
+      "id": "algorithms",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Algorithms",
+      "strain_amplitude": 0.91,
+      "strain_frequency": 19,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 17,
+      "created": "2024-01-01T00:00:00",
+      "description": "Organized ways of storing and accessing data",
+      "entity_type": "concept_type",
+      "id": "data_structures",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Data Structures",
+      "strain_amplitude": 0.89,
+      "strain_frequency": 17,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "description": "Fundamental styles of programming",
+      "entity_type": "concept_type",
+      "id": "programming_paradigms",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Programming Paradigms",
+      "strain_amplitude": 0.86,
+      "strain_frequency": 15,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of resource requirements of algorithms",
+      "entity_type": "concept_type",
+      "id": "complexity_theory",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Computational Complexity",
+      "strain_amplitude": 0.93,
+      "strain_frequency": 12,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 18,
+      "created": "2024-01-01T00:00:00",
+      "description": "Simulation of human intelligence in machines",
+      "entity_type": "concept_type",
+      "id": "artificial_intelligence",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Artificial Intelligence",
+      "strain_amplitude": 0.94,
+      "strain_frequency": 18,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 20,
+      "created": "2024-01-01T00:00:00",
+      "description": "Algorithms that improve through experience",
+      "entity_type": "concept_type",
+      "id": "machine_learning",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Machine Learning",
+      "strain_amplitude": 0.92,
+      "strain_frequency": 20,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Interconnected computing devices for data exchange",
+      "entity_type": "concept_type",
+      "id": "networks",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Computer Networks",
+      "strain_amplitude": 0.87,
+      "strain_frequency": 16,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Organized collections of structured information",
+      "entity_type": "concept_type",
+      "id": "databases",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Databases",
+      "strain_amplitude": 0.85,
+      "strain_frequency": 14,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of fundamental nature of reality and existence",
+      "entity_type": "concept_type",
+      "id": "metaphysics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Metaphysics",
+      "strain_amplitude": 0.94,
+      "strain_frequency": 12,
+      "strain_resistance": 0.5
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of knowledge, belief, and justification",
+      "entity_type": "concept_type",
+      "id": "epistemology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Epistemology",
+      "strain_amplitude": 0.91,
+      "strain_frequency": 14,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of moral principles and values",
+      "entity_type": "concept_type",
+      "id": "ethics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Ethics",
+      "strain_amplitude": 0.88,
+      "strain_frequency": 16,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of beauty, art, and taste",
+      "entity_type": "concept_type",
+      "id": "aesthetics",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Aesthetics",
+      "strain_amplitude": 0.82,
+      "strain_frequency": 10,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "Application of logic to philosophical problems",
+      "entity_type": "concept_type",
+      "id": "logic_philosophy",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Philosophical Logic",
+      "strain_amplitude": 0.89,
+      "strain_frequency": 11,
+      "strain_resistance": 0.35
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of consciousness and mental phenomena",
+      "entity_type": "concept_type",
+      "id": "philosophy_of_mind",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Philosophy of Mind",
+      "strain_amplitude": 0.93,
+      "strain_frequency": 13,
+      "strain_resistance": 0.45
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of foundations and implications of science",
+      "entity_type": "concept_type",
+      "id": "philosophy_of_science",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Philosophy of Science",
+      "strain_amplitude": 0.9,
+      "strain_frequency": 12,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of mental processes like thinking, memory, and learning",
+      "entity_type": "concept_type",
+      "id": "cognitive_psychology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Cognitive Psychology",
+      "strain_amplitude": 0.88,
+      "strain_frequency": 15,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of observable behavior and learning processes",
+      "entity_type": "concept_type",
+      "id": "behavioral_psychology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Behavioral Psychology",
+      "strain_amplitude": 0.85,
+      "strain_frequency": 14,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of how people think, feel, and behave in social situations",
+      "entity_type": "concept_type",
+      "id": "social_psychology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Social Psychology",
+      "strain_amplitude": 0.83,
+      "strain_frequency": 13,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of psychological development across the lifespan",
+      "entity_type": "concept_type",
+      "id": "developmental_psychology",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Developmental Psychology",
+      "strain_amplitude": 0.86,
+      "strain_frequency": 12,
+      "strain_resistance": 0.35
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "Study of the nervous system and brain",
+      "entity_type": "concept_type",
+      "id": "neuroscience",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Neuroscience",
+      "strain_amplitude": 0.91,
+      "strain_frequency": 11,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 16,
+      "created": "2024-01-01T00:00:00",
+      "description": "Mathematician and physicist who formulated laws of motion and gravity",
+      "entity_type": "person",
+      "id": "newton",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Isaac Newton",
+      "strain_amplitude": 0.93,
+      "strain_frequency": 16,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Naturalist who developed theory of evolution by natural selection",
+      "entity_type": "person",
+      "id": "darwin",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Charles Darwin",
+      "strain_amplitude": 0.9,
+      "strain_frequency": 14,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "Ancient Greek philosopher who founded the Academy in Athens",
+      "entity_type": "person",
+      "id": "plato",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Plato",
+      "strain_amplitude": 0.88,
+      "strain_frequency": 13,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 15,
+      "created": "2024-01-01T00:00:00",
+      "description": "Ancient Greek philosopher who made contributions to logic and biology",
+      "entity_type": "person",
+      "id": "aristotle",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Aristotle",
+      "strain_amplitude": 0.89,
+      "strain_frequency": 15,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 12,
+      "created": "2024-01-01T00:00:00",
+      "description": "French philosopher and mathematician who developed Cartesian geometry",
+      "entity_type": "person",
+      "id": "descartes",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Ren\u00e9 Descartes",
+      "strain_amplitude": 0.87,
+      "strain_frequency": 12,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 11,
+      "created": "2024-01-01T00:00:00",
+      "description": "German philosopher who wrote Critique of Pure Reason",
+      "entity_type": "person",
+      "id": "kant",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Immanuel Kant",
+      "strain_amplitude": 0.92,
+      "strain_frequency": 11,
+      "strain_resistance": 0.4
+    },
+    {
+      "access_count": 13,
+      "created": "2024-01-01T00:00:00",
+      "description": "German mathematician known as the Prince of Mathematicians",
+      "entity_type": "person",
+      "id": "gauss",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Carl Friedrich Gauss",
+      "strain_amplitude": 0.91,
+      "strain_frequency": 13,
+      "strain_resistance": 0.25
+    },
+    {
+      "access_count": 14,
+      "created": "2024-01-01T00:00:00",
+      "description": "Swiss mathematician who made fundamental contributions to analysis",
+      "entity_type": "person",
+      "id": "euler",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Leonhard Euler",
+      "strain_amplitude": 0.9,
+      "strain_frequency": 14,
+      "strain_resistance": 0.2
+    },
+    {
+      "access_count": 10,
+      "created": "2024-01-01T00:00:00",
+      "description": "German mathematician who formulated 23 problems for 20th century",
+      "entity_type": "person",
+      "id": "hilbert",
+      "modified": "2024-12-21T00:00:00",
+      "name": "David Hilbert",
+      "strain_amplitude": 0.89,
+      "strain_frequency": 10,
+      "strain_resistance": 0.3
+    },
+    {
+      "access_count": 9,
+      "created": "2024-01-01T00:00:00",
+      "description": "Austrian logician who proved incompleteness theorems",
+      "entity_type": "person",
+      "id": "g\u00f6del",
+      "modified": "2024-12-21T00:00:00",
+      "name": "Kurt G\u00f6del",
+      "strain_amplitude": 0.94,
+      "strain_frequency": 9,
+      "strain_resistance": 0.5
+    },
+    {
+      "created_at": "2025-07-21T12:16:48.831060",
+      "created_by": "mathematician",
+      "description": "Mathematical concept related to: What is the relationship between mathematics and creativity?",
+      "domain": "mathematical concepts",
+      "id": "entity_69",
+      "keywords": [
+        "mathematics",
+        "calculation",
+        "formal"
+      ],
+      "name": "Mathematical Concept 69",
+      "strain_amplitude": 0.5215120330208379,
+      "strain_frequency": 3,
+      "strain_resistance": 0.4412627717730645
+    },
+    {
+      "created_at": "2025-07-21T12:16:50.839221",
+      "created_by": "dreamer",
+      "description": "Creative interpretation of: What is the relationship between mathematics and creativity?",
+      "domain": "creative concepts",
+      "id": "entity_70",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "name": "Creative Vision 70",
+      "strain_amplitude": 0.8835207299618227,
+      "strain_frequency": 9,
+      "strain_resistance": 0.495339737531164
+    },
+    {
+      "created_at": "2025-07-21T12:16:51.845002",
+      "created_by": "philosopher",
+      "description": "Philosophical reflection on: What is the relationship between mathematics and creativity?",
+      "domain": "philosophical concepts",
+      "id": "entity_71",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "name": "Philosophical Reflection 71",
+      "strain_amplitude": 0.4630678190882256,
+      "strain_frequency": 3,
+      "strain_resistance": 0.7306326019233097
+    },
+    {
+      "created_at": "2025-07-21T12:16:52.849928",
+      "created_by": "investigator",
+      "description": "Research investigation into: What is the relationship between mathematics and creativity?",
+      "domain": "investigative concepts",
+      "id": "entity_72",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "name": "Research Investigation 72",
+      "strain_amplitude": 0.7531378351665219,
+      "strain_frequency": 8,
+      "strain_resistance": 0.37960133008316543
+    },
+    {
+      "created_at": "2025-07-21T12:16:53.856366",
+      "created_by": "archivist",
+      "description": "Archival record of: What is the relationship between mathematics and creativity?",
+      "domain": "archival concepts",
+      "id": "entity_73",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "name": "Archival Record 73",
+      "strain_amplitude": 0.8809201570793234,
+      "strain_frequency": 1,
+      "strain_resistance": 0.3530769229301308
+    },
+    {
+      "created_at": "2025-07-21T12:16:54.862429",
+      "created_by": "stage_manager",
+      "description": "Coordination hub for: What is the relationship between mathematics and creativity?",
+      "domain": "coordination concepts",
+      "id": "entity_74",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "name": "Coordination Hub 74",
+      "strain_amplitude": 0.26434258146785466,
+      "strain_frequency": 2,
+      "strain_resistance": 0.18069512626512124
+    },
+    {
+      "created_at": "2025-07-21T12:16:57.880155",
+      "created_by": "skeptic",
+      "description": "Logical analysis of: How can we apply logical reasoning to ethical dilemmas?",
+      "domain": "logical concepts",
+      "id": "entity_75",
+      "keywords": [
+        "logic",
+        "reasoning",
+        "critical"
+      ],
+      "name": "Logical Analysis 75",
+      "strain_amplitude": 0.20486865298234846,
+      "strain_frequency": 9,
+      "strain_resistance": 0.10711559652665159
+    },
+    {
+      "created_at": "2025-07-21T12:16:58.885206",
+      "created_by": "dreamer",
+      "description": "Creative interpretation of: How can we apply logical reasoning to ethical dilemmas?",
+      "domain": "creative concepts",
+      "id": "entity_76",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "name": "Creative Vision 76",
+      "strain_amplitude": 0.47089710452822175,
+      "strain_frequency": 7,
+      "strain_resistance": 0.5501607490597943
+    },
+    {
+      "created_at": "2025-07-21T12:16:59.889334",
+      "created_by": "philosopher",
+      "description": "Philosophical reflection on: How can we apply logical reasoning to ethical dilemmas?",
+      "domain": "philosophical concepts",
+      "id": "entity_77",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "name": "Philosophical Reflection 77",
+      "strain_amplitude": 0.47018727644984737,
+      "strain_frequency": 3,
+      "strain_resistance": 0.27129856344649006
+    },
+    {
+      "created_at": "2025-07-21T12:17:00.897740",
+      "created_by": "investigator",
+      "description": "Research investigation into: How can we apply logical reasoning to ethical dilemmas?",
+      "domain": "investigative concepts",
+      "id": "entity_78",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "name": "Research Investigation 78",
+      "strain_amplitude": 0.37786151797410106,
+      "strain_frequency": 7,
+      "strain_resistance": 0.18216445193859893
+    },
+    {
+      "created_at": "2025-07-21T12:17:01.903546",
+      "created_by": "archivist",
+      "description": "Archival record of: How can we apply logical reasoning to ethical dilemmas?",
+      "domain": "archival concepts",
+      "id": "entity_79",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "name": "Archival Record 79",
+      "strain_amplitude": 0.8175451303979695,
+      "strain_frequency": 1,
+      "strain_resistance": 0.756385863590846
+    },
+    {
+      "created_at": "2025-07-21T12:17:02.910139",
+      "created_by": "stage_manager",
+      "description": "Coordination hub for: How can we apply logical reasoning to ethical dilemmas?",
+      "domain": "coordination concepts",
+      "id": "entity_80",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "name": "Coordination Hub 80",
+      "strain_amplitude": 0.5055256702739518,
+      "strain_frequency": 5,
+      "strain_resistance": 0.2004979074229708
+    },
+    {
+      "created_at": "2025-07-21T12:17:06.932518",
+      "created_by": "dreamer",
+      "description": "Creative interpretation of: What are the philosophical implications of artificial intelligence?",
+      "domain": "creative concepts",
+      "id": "entity_81",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "name": "Creative Vision 81",
+      "strain_amplitude": 0.6006579735872287,
+      "strain_frequency": 6,
+      "strain_resistance": 0.14299396448899096
+    },
+    {
+      "created_at": "2025-07-21T12:17:07.939377",
+      "created_by": "philosopher",
+      "description": "Philosophical reflection on: What are the philosophical implications of artificial intelligence?",
+      "domain": "philosophical concepts",
+      "id": "entity_82",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "name": "Philosophical Reflection 82",
+      "strain_amplitude": 0.8367303021994247,
+      "strain_frequency": 8,
+      "strain_resistance": 0.39832842467529284
+    },
+    {
+      "created_at": "2025-07-21T12:17:08.947682",
+      "created_by": "investigator",
+      "description": "Research investigation into: What are the philosophical implications of artificial intelligence?",
+      "domain": "investigative concepts",
+      "id": "entity_83",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "name": "Research Investigation 83",
+      "strain_amplitude": 0.7300191438100785,
+      "strain_frequency": 4,
+      "strain_resistance": 0.6717381687528208
+    },
+    {
+      "created_at": "2025-07-21T12:17:09.953768",
+      "created_by": "archivist",
+      "description": "Archival record of: What are the philosophical implications of artificial intelligence?",
+      "domain": "archival concepts",
+      "id": "entity_84",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "name": "Archival Record 84",
+      "strain_amplitude": 0.3872257393681796,
+      "strain_frequency": 9,
+      "strain_resistance": 0.6360572830417608
+    },
+    {
+      "created_at": "2025-07-21T12:17:10.955631",
+      "created_by": "stage_manager",
+      "description": "Coordination hub for: What are the philosophical implications of artificial intelligence?",
+      "domain": "coordination concepts",
+      "id": "entity_85",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "name": "Coordination Hub 85",
+      "strain_amplitude": 0.8791317404774005,
+      "strain_frequency": 2,
+      "strain_resistance": 0.7497231461535926
+    },
+    {
+      "created_at": "2025-07-21T12:17:14.974040",
+      "created_by": "dreamer",
+      "description": "Creative interpretation of: How does scientific investigation connect to human imagination?",
+      "domain": "creative concepts",
+      "id": "entity_86",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "name": "Creative Vision 86",
+      "strain_amplitude": 0.4332817800083374,
+      "strain_frequency": 7,
+      "strain_resistance": 0.3731665140927132
+    },
+    {
+      "created_at": "2025-07-21T12:17:15.979249",
+      "created_by": "philosopher",
+      "description": "Philosophical reflection on: How does scientific investigation connect to human imagination?",
+      "domain": "philosophical concepts",
+      "id": "entity_87",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "name": "Philosophical Reflection 87",
+      "strain_amplitude": 0.3436342757629619,
+      "strain_frequency": 8,
+      "strain_resistance": 0.7242521963514073
+    },
+    {
+      "created_at": "2025-07-21T12:17:16.985571",
+      "created_by": "investigator",
+      "description": "Research investigation into: How does scientific investigation connect to human imagination?",
+      "domain": "investigative concepts",
+      "id": "entity_88",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "name": "Research Investigation 88",
+      "strain_amplitude": 0.7461884971951542,
+      "strain_frequency": 4,
+      "strain_resistance": 0.3652861461384711
+    },
+    {
+      "created_at": "2025-07-21T12:17:17.992800",
+      "created_by": "archivist",
+      "description": "Archival record of: How does scientific investigation connect to human imagination?",
+      "domain": "archival concepts",
+      "id": "entity_89",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "name": "Archival Record 89",
+      "strain_amplitude": 0.39837904275171154,
+      "strain_frequency": 8,
+      "strain_resistance": 0.7973825419694758
+    },
+    {
+      "created_at": "2025-07-21T12:17:18.997538",
+      "created_by": "stage_manager",
+      "description": "Coordination hub for: How does scientific investigation connect to human imagination?",
+      "domain": "coordination concepts",
+      "id": "entity_90",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "name": "Coordination Hub 90",
+      "strain_amplitude": 0.323308123703231,
+      "strain_frequency": 8,
+      "strain_resistance": 0.12081062509345485
+    },
+    {
+      "created_at": "2025-07-21T12:17:23.017846",
+      "created_by": "dreamer",
+      "description": "Creative interpretation of: What patterns emerge when we synthesize knowledge across domains?",
+      "domain": "creative concepts",
+      "id": "entity_91",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "name": "Creative Vision 91",
+      "strain_amplitude": 0.6644867048595422,
+      "strain_frequency": 1,
+      "strain_resistance": 0.15414677410266056
+    },
+    {
+      "created_at": "2025-07-21T12:17:24.024518",
+      "created_by": "philosopher",
+      "description": "Philosophical reflection on: What patterns emerge when we synthesize knowledge across domains?",
+      "domain": "philosophical concepts",
+      "id": "entity_92",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "name": "Philosophical Reflection 92",
+      "strain_amplitude": 0.7141189529614973,
+      "strain_frequency": 6,
+      "strain_resistance": 0.6714755399788799
+    },
+    {
+      "created_at": "2025-07-21T12:17:25.032871",
+      "created_by": "investigator",
+      "description": "Research investigation into: What patterns emerge when we synthesize knowledge across domains?",
+      "domain": "investigative concepts",
+      "id": "entity_93",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "name": "Research Investigation 93",
+      "strain_amplitude": 0.3045906586625632,
+      "strain_frequency": 4,
+      "strain_resistance": 0.18997288582095045
+    },
+    {
+      "created_at": "2025-07-21T12:17:26.039437",
+      "created_by": "archivist",
+      "description": "Archival record of: What patterns emerge when we synthesize knowledge across domains?",
+      "domain": "archival concepts",
+      "id": "entity_94",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "name": "Archival Record 94",
+      "strain_amplitude": 0.19124443908697028,
+      "strain_frequency": 8,
+      "strain_resistance": 0.40426758524939777
+    },
+    {
+      "created_at": "2025-07-21T12:17:27.042626",
+      "created_by": "stage_manager",
+      "description": "Coordination hub for: What patterns emerge when we synthesize knowledge across domains?",
+      "domain": "coordination concepts",
+      "id": "entity_95",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "name": "Coordination Hub 95",
+      "strain_amplitude": 0.7698371013313173,
+      "strain_frequency": 5,
+      "strain_resistance": 0.34044842970260814
+    },
+    {
+      "name": "Mathematical Concept 96",
+      "description": "Mathematical concept related to: How does mathematical beauty relate to artistic creativity?",
+      "domain": "mathematical concepts",
+      "keywords": [
+        "mathematics",
+        "calculation",
+        "formal"
+      ],
+      "id": "entity_96",
+      "created_by": "mathematician",
+      "created_at": "2025-07-21T12:18:55.299516",
+      "strain_amplitude": 0.42615349997722884,
+      "strain_resistance": 0.1677478123655613,
+      "strain_frequency": 8
+    },
+    {
+      "name": "Creative Vision 97",
+      "description": "Creative interpretation of: How does mathematical beauty relate to artistic creativity?",
+      "domain": "creative concepts",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "id": "entity_97",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:18:57.311427",
+      "strain_amplitude": 0.656265647495934,
+      "strain_resistance": 0.6260393383645383,
+      "strain_frequency": 6
+    },
+    {
+      "name": "Philosophical Reflection 98",
+      "description": "Philosophical reflection on: How does mathematical beauty relate to artistic creativity?",
+      "domain": "philosophical concepts",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "id": "entity_98",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:18:58.318707",
+      "strain_amplitude": 0.2668252266824105,
+      "strain_resistance": 0.18327972558775532,
+      "strain_frequency": 9
+    },
+    {
+      "name": "Research Investigation 99",
+      "description": "Research investigation into: How does mathematical beauty relate to artistic creativity?",
+      "domain": "investigative concepts",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "id": "entity_99",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:18:59.325996",
+      "strain_amplitude": 0.5844696952153621,
+      "strain_resistance": 0.6500945426071947,
+      "strain_frequency": 3
+    },
+    {
+      "name": "Archival Record 100",
+      "description": "Archival record of: How does mathematical beauty relate to artistic creativity?",
+      "domain": "archival concepts",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "id": "entity_100",
+      "created_by": "archivist",
+      "created_at": "2025-07-21T12:19:00.332459",
+      "strain_amplitude": 0.12185586070022598,
+      "strain_resistance": 0.2484309184659154,
+      "strain_frequency": 8
+    },
+    {
+      "name": "Coordination Hub 101",
+      "description": "Coordination hub for: How does mathematical beauty relate to artistic creativity?",
+      "domain": "coordination concepts",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "id": "entity_101",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:01.338442",
+      "strain_amplitude": 0.5305397419004698,
+      "strain_resistance": 0.5375162405399245,
+      "strain_frequency": 1
+    },
+    {
+      "name": "Creative Vision 102",
+      "description": "Creative interpretation of: What are the ethical implications of artificial intelligence in decision-making?",
+      "domain": "creative concepts",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "id": "entity_102",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:05.355476",
+      "strain_amplitude": 0.8503402126913728,
+      "strain_resistance": 0.6742307146313484,
+      "strain_frequency": 1
+    },
+    {
+      "name": "Philosophical Reflection 103",
+      "description": "Philosophical reflection on: What are the ethical implications of artificial intelligence in decision-making?",
+      "domain": "philosophical concepts",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "id": "entity_103",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:06.359187",
+      "strain_amplitude": 0.23244628955573265,
+      "strain_resistance": 0.15570357361769152,
+      "strain_frequency": 8
+    },
+    {
+      "name": "Research Investigation 104",
+      "description": "Research investigation into: What are the ethical implications of artificial intelligence in decision-making?",
+      "domain": "investigative concepts",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "id": "entity_104",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:07.366887",
+      "strain_amplitude": 0.889846433986404,
+      "strain_resistance": 0.43505387486780756,
+      "strain_frequency": 6
+    },
+    {
+      "name": "Archival Record 105",
+      "description": "Archival record of: What are the ethical implications of artificial intelligence in decision-making?",
+      "domain": "archival concepts",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "id": "entity_105",
+      "created_by": "archivist",
+      "created_at": "2025-07-21T12:19:08.370610",
+      "strain_amplitude": 0.5756236541250465,
+      "strain_resistance": 0.7979679161593155,
+      "strain_frequency": 4
+    },
+    {
+      "name": "Coordination Hub 106",
+      "description": "Coordination hub for: What are the ethical implications of artificial intelligence in decision-making?",
+      "domain": "coordination concepts",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "id": "entity_106",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:09.376876",
+      "strain_amplitude": 0.8630985116097393,
+      "strain_resistance": 0.14865271865385998,
+      "strain_frequency": 6
+    },
+    {
+      "name": "Creative Vision 107",
+      "description": "Creative interpretation of: How can we bridge the gap between scientific discovery and human intuition?",
+      "domain": "creative concepts",
+      "keywords": [
+        "creative",
+        "imagination",
+        "vision"
+      ],
+      "id": "entity_107",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:13.397836",
+      "strain_amplitude": 0.2022069297034137,
+      "strain_resistance": 0.7027815470293222,
+      "strain_frequency": 6
+    },
+    {
+      "name": "Philosophical Reflection 108",
+      "description": "Philosophical reflection on: How can we bridge the gap between scientific discovery and human intuition?",
+      "domain": "philosophical concepts",
+      "keywords": [
+        "philosophy",
+        "ethics",
+        "meaning"
+      ],
+      "id": "entity_108",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:14.405007",
+      "strain_amplitude": 0.617376906476425,
+      "strain_resistance": 0.4396121750631028,
+      "strain_frequency": 3
+    },
+    {
+      "name": "Research Investigation 109",
+      "description": "Research investigation into: How can we bridge the gap between scientific discovery and human intuition?",
+      "domain": "investigative concepts",
+      "keywords": [
+        "research",
+        "investigation",
+        "exploration"
+      ],
+      "id": "entity_109",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:15.409342",
+      "strain_amplitude": 0.4345733671891544,
+      "strain_resistance": 0.20791102266902017,
+      "strain_frequency": 2
+    },
+    {
+      "name": "Archival Record 110",
+      "description": "Archival record of: How can we bridge the gap between scientific discovery and human intuition?",
+      "domain": "archival concepts",
+      "keywords": [
+        "archive",
+        "record",
+        "memory"
+      ],
+      "id": "entity_110",
+      "created_by": "archivist",
+      "created_at": "2025-07-21T12:19:16.412744",
+      "strain_amplitude": 0.34410755150234296,
+      "strain_resistance": 0.5438177844815401,
+      "strain_frequency": 9
+    },
+    {
+      "name": "Coordination Hub 111",
+      "description": "Coordination hub for: How can we bridge the gap between scientific discovery and human intuition?",
+      "domain": "coordination concepts",
+      "keywords": [
+        "coordination",
+        "synthesis",
+        "integration"
+      ],
+      "id": "entity_111",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:17.419001",
+      "strain_amplitude": 0.5362361102356034,
+      "strain_resistance": 0.4247231951147954,
+      "strain_frequency": 5
+    }
+  ],
+  "relationships": [
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_1",
+      "strain_amplitude": 0.95,
+      "to": "arithmetic",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_2",
+      "strain_amplitude": 0.95,
+      "to": "algebra",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_3",
+      "strain_amplitude": 0.95,
+      "to": "geometry",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_4",
+      "strain_amplitude": 0.95,
+      "to": "calculus",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_5",
+      "strain_amplitude": 0.95,
+      "to": "set_theory",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_6",
+      "strain_amplitude": 0.95,
+      "to": "number_theory",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_7",
+      "strain_amplitude": 0.95,
+      "to": "probability",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_8",
+      "strain_amplitude": 0.95,
+      "to": "statistics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_9",
+      "strain_amplitude": 0.95,
+      "to": "linear_algebra",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_10",
+      "strain_amplitude": 0.95,
+      "to": "topology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_11",
+      "strain_amplitude": 0.95,
+      "to": "newton",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_12",
+      "strain_amplitude": 0.95,
+      "to": "gauss",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_13",
+      "strain_amplitude": 0.95,
+      "to": "euler",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_14",
+      "strain_amplitude": 0.95,
+      "to": "hilbert",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.95,
+      "from": "mathematician",
+      "id": "rel_15",
+      "strain_amplitude": 0.95,
+      "to": "g\u00f6del",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_16",
+      "strain_amplitude": 0.98,
+      "to": "propositional_logic",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_17",
+      "strain_amplitude": 0.98,
+      "to": "predicate_logic",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_18",
+      "strain_amplitude": 0.98,
+      "to": "modal_logic",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_19",
+      "strain_amplitude": 0.98,
+      "to": "inductive_reasoning",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_20",
+      "strain_amplitude": 0.98,
+      "to": "deductive_reasoning",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_21",
+      "strain_amplitude": 0.98,
+      "to": "fallacies",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_22",
+      "strain_amplitude": 0.98,
+      "to": "validity",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_23",
+      "strain_amplitude": 0.98,
+      "to": "soundness",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.98,
+      "from": "skeptic",
+      "id": "rel_24",
+      "strain_amplitude": 0.98,
+      "to": "logic_philosophy",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_25",
+      "strain_amplitude": 0.85,
+      "to": "artificial_intelligence",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_26",
+      "strain_amplitude": 0.85,
+      "to": "machine_learning",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_27",
+      "strain_amplitude": 0.85,
+      "to": "algorithms",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_28",
+      "strain_amplitude": 0.85,
+      "to": "programming_paradigms",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_29",
+      "strain_amplitude": 0.85,
+      "to": "complexity_theory",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_30",
+      "strain_amplitude": 0.85,
+      "to": "networks",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_31",
+      "strain_amplitude": 0.85,
+      "to": "databases",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_32",
+      "strain_amplitude": 0.85,
+      "to": "aesthetics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.85,
+      "from": "dreamer",
+      "id": "rel_33",
+      "strain_amplitude": 0.85,
+      "to": "philosophy_of_mind",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_34",
+      "strain_amplitude": 0.92,
+      "to": "metaphysics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_35",
+      "strain_amplitude": 0.92,
+      "to": "epistemology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_36",
+      "strain_amplitude": 0.92,
+      "to": "ethics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_37",
+      "strain_amplitude": 0.92,
+      "to": "aesthetics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_38",
+      "strain_amplitude": 0.92,
+      "to": "logic_philosophy",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_39",
+      "strain_amplitude": 0.92,
+      "to": "philosophy_of_mind",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_40",
+      "strain_amplitude": 0.92,
+      "to": "philosophy_of_science",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_41",
+      "strain_amplitude": 0.92,
+      "to": "plato",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_42",
+      "strain_amplitude": 0.92,
+      "to": "aristotle",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_43",
+      "strain_amplitude": 0.92,
+      "to": "descartes",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.92,
+      "from": "philosopher",
+      "id": "rel_44",
+      "strain_amplitude": 0.92,
+      "to": "kant",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_45",
+      "strain_amplitude": 0.88,
+      "to": "mechanics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_46",
+      "strain_amplitude": 0.88,
+      "to": "thermodynamics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_47",
+      "strain_amplitude": 0.88,
+      "to": "electromagnetism",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_48",
+      "strain_amplitude": 0.88,
+      "to": "quantum_mechanics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_49",
+      "strain_amplitude": 0.88,
+      "to": "relativity",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_50",
+      "strain_amplitude": 0.88,
+      "to": "optics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_51",
+      "strain_amplitude": 0.88,
+      "to": "acoustics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_52",
+      "strain_amplitude": 0.88,
+      "to": "fluid_dynamics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_53",
+      "strain_amplitude": 0.88,
+      "to": "atomic_theory",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_54",
+      "strain_amplitude": 0.88,
+      "to": "periodic_table",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_55",
+      "strain_amplitude": 0.88,
+      "to": "chemical_bonding",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_56",
+      "strain_amplitude": 0.88,
+      "to": "reactions",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_57",
+      "strain_amplitude": 0.88,
+      "to": "cell_theory",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_58",
+      "strain_amplitude": 0.88,
+      "to": "evolution",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_59",
+      "strain_amplitude": 0.88,
+      "to": "genetics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_60",
+      "strain_amplitude": 0.88,
+      "to": "ecology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_61",
+      "strain_amplitude": 0.88,
+      "to": "physiology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_62",
+      "strain_amplitude": 0.88,
+      "to": "biochemistry",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_63",
+      "strain_amplitude": 0.88,
+      "to": "newton",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.88,
+      "from": "investigator",
+      "id": "rel_64",
+      "strain_amplitude": 0.88,
+      "to": "darwin",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_65",
+      "strain_amplitude": 0.8,
+      "to": "data_structures",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_66",
+      "strain_amplitude": 0.8,
+      "to": "databases",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_67",
+      "strain_amplitude": 0.8,
+      "to": "networks",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_68",
+      "strain_amplitude": 0.8,
+      "to": "cognitive_psychology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_69",
+      "strain_amplitude": 0.8,
+      "to": "behavioral_psychology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_70",
+      "strain_amplitude": 0.8,
+      "to": "social_psychology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_71",
+      "strain_amplitude": 0.8,
+      "to": "developmental_psychology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.8,
+      "from": "archivist",
+      "id": "rel_72",
+      "strain_amplitude": 0.8,
+      "to": "neuroscience",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_73",
+      "strain_amplitude": 0.75,
+      "to": "thermochemistry",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_74",
+      "strain_amplitude": 0.75,
+      "to": "kinetics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_75",
+      "strain_amplitude": 0.75,
+      "to": "optics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_76",
+      "strain_amplitude": 0.75,
+      "to": "acoustics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_77",
+      "strain_amplitude": 0.75,
+      "to": "fluid_dynamics",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_78",
+      "strain_amplitude": 0.75,
+      "to": "topology",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_79",
+      "strain_amplitude": 0.75,
+      "to": "modal_logic",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.75,
+      "from": "stage_manager",
+      "id": "rel_80",
+      "strain_amplitude": 0.75,
+      "to": "philosophy_of_science",
+      "type": "has_authority"
+    },
+    {
+      "authority_strength": 0.36725605667531447,
+      "created_at": "2025-07-21T12:16:50.839254",
+      "created_by": "dreamer",
+      "from": "Creative Vision 70",
+      "id": "rel_81",
+      "strain_amplitude": 0.1431187782257457,
+      "to": "geometry",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.46443478368097957,
+      "created_at": "2025-07-21T12:16:50.839264",
+      "created_by": "dreamer",
+      "from": "Creative Vision 70",
+      "id": "rel_82",
+      "strain_amplitude": 0.7831197978437334,
+      "to": "ecology",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.6450828018421484,
+      "created_at": "2025-07-21T12:16:50.839271",
+      "created_by": "dreamer",
+      "from": "Creative Vision 70",
+      "id": "rel_83",
+      "strain_amplitude": 0.7424370988672389,
+      "to": "number_theory",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.4253134974007058,
+      "created_at": "2025-07-21T12:16:52.849964",
+      "created_by": "investigator",
+      "from": "Research Investigation 72",
+      "id": "rel_84",
+      "strain_amplitude": 0.4028764129786737,
+      "to": "arithmetic",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.7330924871245179,
+      "created_at": "2025-07-21T12:16:52.849975",
+      "created_by": "investigator",
+      "from": "Research Investigation 72",
+      "id": "rel_85",
+      "strain_amplitude": 0.7856392084362733,
+      "to": "algebra",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.8683596901858015,
+      "created_at": "2025-07-21T12:16:52.849984",
+      "created_by": "investigator",
+      "from": "Research Investigation 72",
+      "id": "rel_86",
+      "strain_amplitude": 0.776513340620111,
+      "to": "geometry",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.3193820113282407,
+      "created_at": "2025-07-21T12:16:52.849991",
+      "created_by": "investigator",
+      "from": "Research Investigation 72",
+      "id": "rel_87",
+      "strain_amplitude": 0.12438348358027163,
+      "to": "calculus",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.7752657190653727,
+      "created_at": "2025-07-21T12:16:52.849998",
+      "created_by": "investigator",
+      "from": "Research Investigation 72",
+      "id": "rel_88",
+      "strain_amplitude": 0.29891449981934454,
+      "to": "set_theory",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.7819934316102517,
+      "created_at": "2025-07-21T12:16:54.862453",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 74",
+      "id": "rel_89",
+      "strain_amplitude": 0.3111506094410773,
+      "to": "entity_69",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.4404465983484511,
+      "created_at": "2025-07-21T12:16:54.862462",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 74",
+      "id": "rel_90",
+      "strain_amplitude": 0.14314688318128638,
+      "to": "entity_70",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.47298166197556235,
+      "created_at": "2025-07-21T12:16:54.862469",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 74",
+      "id": "rel_91",
+      "strain_amplitude": 0.5184316976453482,
+      "to": "entity_71",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.3515583151366316,
+      "created_at": "2025-07-21T12:16:58.885255",
+      "created_by": "dreamer",
+      "from": "Creative Vision 76",
+      "id": "rel_92",
+      "strain_amplitude": 0.26260714254201545,
+      "to": "evolution",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.7131779639577958,
+      "created_at": "2025-07-21T12:16:58.885267",
+      "created_by": "dreamer",
+      "from": "Creative Vision 76",
+      "id": "rel_93",
+      "strain_amplitude": 0.48023861487054453,
+      "to": "aesthetics",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.7665801357661113,
+      "created_at": "2025-07-21T12:16:58.885277",
+      "created_by": "dreamer",
+      "from": "Creative Vision 76",
+      "id": "rel_94",
+      "strain_amplitude": 0.7894899143607543,
+      "to": "genetics",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.6477639144432936,
+      "created_at": "2025-07-21T12:16:59.889375",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 77",
+      "id": "rel_95",
+      "strain_amplitude": 0.6603051661881038,
+      "to": "entity_71",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.6815090048029142,
+      "created_at": "2025-07-21T12:17:00.897835",
+      "created_by": "investigator",
+      "from": "Research Investigation 78",
+      "id": "rel_96",
+      "strain_amplitude": 0.6894382728473136,
+      "to": "linear_algebra",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.8548405357009934,
+      "created_at": "2025-07-21T12:17:00.897864",
+      "created_by": "investigator",
+      "from": "Research Investigation 78",
+      "id": "rel_97",
+      "strain_amplitude": 0.4154267087517003,
+      "to": "topology",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.660264889246044,
+      "created_at": "2025-07-21T12:17:00.897885",
+      "created_by": "investigator",
+      "from": "Research Investigation 78",
+      "id": "rel_98",
+      "strain_amplitude": 0.10592811739816019,
+      "to": "propositional_logic",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.5575644691281971,
+      "created_at": "2025-07-21T12:17:00.897915",
+      "created_by": "investigator",
+      "from": "Research Investigation 78",
+      "id": "rel_99",
+      "strain_amplitude": 0.4870285078965554,
+      "to": "inductive_reasoning",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.4045616727934417,
+      "created_at": "2025-07-21T12:17:00.897937",
+      "created_by": "investigator",
+      "from": "Research Investigation 78",
+      "id": "rel_100",
+      "strain_amplitude": 0.6886057790472119,
+      "to": "deductive_reasoning",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.4578985453986894,
+      "created_at": "2025-07-21T12:17:02.910198",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 80",
+      "id": "rel_101",
+      "strain_amplitude": 0.5532152536793538,
+      "to": "entity_69",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.42936941169340215,
+      "created_at": "2025-07-21T12:17:02.910210",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 80",
+      "id": "rel_102",
+      "strain_amplitude": 0.4517499974613316,
+      "to": "entity_70",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.7109465533214122,
+      "created_at": "2025-07-21T12:17:02.910217",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 80",
+      "id": "rel_103",
+      "strain_amplitude": 0.3632358687658157,
+      "to": "entity_71",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.4916541497825022,
+      "created_at": "2025-07-21T12:17:06.932566",
+      "created_by": "dreamer",
+      "from": "Creative Vision 81",
+      "id": "rel_104",
+      "strain_amplitude": 0.2209901623634371,
+      "to": "mechanics",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.37786507426584603,
+      "created_at": "2025-07-21T12:17:06.932580",
+      "created_by": "dreamer",
+      "from": "Creative Vision 81",
+      "id": "rel_105",
+      "strain_amplitude": 0.29698033375657285,
+      "to": "number_theory",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.6980080772648498,
+      "created_at": "2025-07-21T12:17:06.932590",
+      "created_by": "dreamer",
+      "from": "Creative Vision 81",
+      "id": "rel_106",
+      "strain_amplitude": 0.1509658949633052,
+      "to": "data_structures",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.5156271130830409,
+      "created_at": "2025-07-21T12:17:07.939422",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 82",
+      "id": "rel_107",
+      "strain_amplitude": 0.6668006370704201,
+      "to": "entity_71",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.5257966479131775,
+      "created_at": "2025-07-21T12:17:07.939434",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 82",
+      "id": "rel_108",
+      "strain_amplitude": 0.4257235197192274,
+      "to": "entity_77",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.7164795683996603,
+      "created_at": "2025-07-21T12:17:08.947762",
+      "created_by": "investigator",
+      "from": "Research Investigation 83",
+      "id": "rel_109",
+      "strain_amplitude": 0.6154062358902211,
+      "to": "algebra",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.6665098423053457,
+      "created_at": "2025-07-21T12:17:08.947786",
+      "created_by": "investigator",
+      "from": "Research Investigation 83",
+      "id": "rel_110",
+      "strain_amplitude": 0.6023170691808836,
+      "to": "geometry",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.4773500907503131,
+      "created_at": "2025-07-21T12:17:08.947797",
+      "created_by": "investigator",
+      "from": "Research Investigation 83",
+      "id": "rel_111",
+      "strain_amplitude": 0.5162912472097544,
+      "to": "calculus",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.40952249537449714,
+      "created_at": "2025-07-21T12:17:08.947806",
+      "created_by": "investigator",
+      "from": "Research Investigation 83",
+      "id": "rel_112",
+      "strain_amplitude": 0.7629049740537258,
+      "to": "set_theory",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.5280819729972356,
+      "created_at": "2025-07-21T12:17:08.947815",
+      "created_by": "investigator",
+      "from": "Research Investigation 83",
+      "id": "rel_113",
+      "strain_amplitude": 0.5024651014302491,
+      "to": "number_theory",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.4300451116398457,
+      "created_at": "2025-07-21T12:17:10.955656",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 85",
+      "id": "rel_114",
+      "strain_amplitude": 0.12747351497388015,
+      "to": "entity_69",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.3064529415896704,
+      "created_at": "2025-07-21T12:17:10.955663",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 85",
+      "id": "rel_115",
+      "strain_amplitude": 0.1204110787011849,
+      "to": "entity_70",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.6445418315558487,
+      "created_at": "2025-07-21T12:17:10.955669",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 85",
+      "id": "rel_116",
+      "strain_amplitude": 0.6139183044252373,
+      "to": "entity_71",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.7155541479446808,
+      "created_at": "2025-07-21T12:17:14.974078",
+      "created_by": "dreamer",
+      "from": "Creative Vision 86",
+      "id": "rel_117",
+      "strain_amplitude": 0.7405934884246995,
+      "to": "hilbert",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.530546564461635,
+      "created_at": "2025-07-21T12:17:14.974087",
+      "created_by": "dreamer",
+      "from": "Creative Vision 86",
+      "id": "rel_118",
+      "strain_amplitude": 0.4205349958610657,
+      "to": "mechanics",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.7530428882200482,
+      "created_at": "2025-07-21T12:17:14.974094",
+      "created_by": "dreamer",
+      "from": "Creative Vision 86",
+      "id": "rel_119",
+      "strain_amplitude": 0.3400610066280978,
+      "to": "euler",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.8369592519156654,
+      "created_at": "2025-07-21T12:17:15.979281",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 87",
+      "id": "rel_120",
+      "strain_amplitude": 0.6954412582159963,
+      "to": "entity_71",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.4510283335996882,
+      "created_at": "2025-07-21T12:17:15.979291",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 87",
+      "id": "rel_121",
+      "strain_amplitude": 0.16179200920271986,
+      "to": "entity_77",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.372229827696632,
+      "created_at": "2025-07-21T12:17:15.979298",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 87",
+      "id": "rel_122",
+      "strain_amplitude": 0.30030625736993993,
+      "to": "entity_82",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.8315143711521331,
+      "created_at": "2025-07-21T12:17:16.985596",
+      "created_by": "investigator",
+      "from": "Research Investigation 88",
+      "id": "rel_123",
+      "strain_amplitude": 0.43381401660075747,
+      "to": "linear_algebra",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.8880421375561371,
+      "created_at": "2025-07-21T12:17:16.985606",
+      "created_by": "investigator",
+      "from": "Research Investigation 88",
+      "id": "rel_124",
+      "strain_amplitude": 0.45569110103854826,
+      "to": "topology",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.6062048097103301,
+      "created_at": "2025-07-21T12:17:16.985615",
+      "created_by": "investigator",
+      "from": "Research Investigation 88",
+      "id": "rel_125",
+      "strain_amplitude": 0.6557174168287373,
+      "to": "inductive_reasoning",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.6983650736103455,
+      "created_at": "2025-07-21T12:17:16.985621",
+      "created_by": "investigator",
+      "from": "Research Investigation 88",
+      "id": "rel_126",
+      "strain_amplitude": 0.7247533830192617,
+      "to": "deductive_reasoning",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.7764237859608885,
+      "created_at": "2025-07-21T12:17:16.985629",
+      "created_by": "investigator",
+      "from": "Research Investigation 88",
+      "id": "rel_127",
+      "strain_amplitude": 0.529417268731653,
+      "to": "quantum_mechanics",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.4368145433289248,
+      "created_at": "2025-07-21T12:17:18.997621",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 90",
+      "id": "rel_128",
+      "strain_amplitude": 0.16406849609710752,
+      "to": "entity_69",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.6906543346907749,
+      "created_at": "2025-07-21T12:17:18.997642",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 90",
+      "id": "rel_129",
+      "strain_amplitude": 0.3898218573984138,
+      "to": "entity_70",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.3106601563842685,
+      "created_at": "2025-07-21T12:17:18.997661",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 90",
+      "id": "rel_130",
+      "strain_amplitude": 0.5587250335614735,
+      "to": "entity_71",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.8310941456744185,
+      "created_at": "2025-07-21T12:17:23.017879",
+      "created_by": "dreamer",
+      "from": "Creative Vision 91",
+      "id": "rel_131",
+      "strain_amplitude": 0.7520933589672562,
+      "to": "statistics",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.36252807188918584,
+      "created_at": "2025-07-21T12:17:23.017889",
+      "created_by": "dreamer",
+      "from": "Creative Vision 91",
+      "id": "rel_132",
+      "strain_amplitude": 0.16428995841027075,
+      "to": "networks",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.353700923205577,
+      "created_at": "2025-07-21T12:17:23.017897",
+      "created_by": "dreamer",
+      "from": "Creative Vision 91",
+      "id": "rel_133",
+      "strain_amplitude": 0.43683034336885274,
+      "to": "gauss",
+      "type": "creative_synthesis"
+    },
+    {
+      "authority_strength": 0.8379237554715075,
+      "created_at": "2025-07-21T12:17:24.024559",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 92",
+      "id": "rel_134",
+      "strain_amplitude": 0.31198409266983795,
+      "to": "entity_71",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.31345458923904823,
+      "created_at": "2025-07-21T12:17:24.024572",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 92",
+      "id": "rel_135",
+      "strain_amplitude": 0.11315371760587102,
+      "to": "entity_77",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.444873735041444,
+      "created_at": "2025-07-21T12:17:24.024581",
+      "created_by": "philosopher",
+      "from": "Philosophical Reflection 92",
+      "id": "rel_136",
+      "strain_amplitude": 0.6743409170378548,
+      "to": "entity_82",
+      "type": "philosophical_connection"
+    },
+    {
+      "authority_strength": 0.4980016974782943,
+      "created_at": "2025-07-21T12:17:25.032944",
+      "created_by": "investigator",
+      "from": "Research Investigation 93",
+      "id": "rel_137",
+      "strain_amplitude": 0.36282184772427073,
+      "to": "propositional_logic",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.3902927178864537,
+      "created_at": "2025-07-21T12:17:25.032966",
+      "created_by": "investigator",
+      "from": "Research Investigation 93",
+      "id": "rel_138",
+      "strain_amplitude": 0.6501875176632368,
+      "to": "chemical_bonding",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.38069760024097155,
+      "created_at": "2025-07-21T12:17:25.032980",
+      "created_by": "investigator",
+      "from": "Research Investigation 93",
+      "id": "rel_139",
+      "strain_amplitude": 0.4350210866177372,
+      "to": "ecology",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.3319139073634215,
+      "created_at": "2025-07-21T12:17:25.032994",
+      "created_by": "investigator",
+      "from": "Research Investigation 93",
+      "id": "rel_140",
+      "strain_amplitude": 0.2306388072848035,
+      "to": "epistemology",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.31705943853161495,
+      "created_at": "2025-07-21T12:17:25.033006",
+      "created_by": "investigator",
+      "from": "Research Investigation 93",
+      "id": "rel_141",
+      "strain_amplitude": 0.3457354253105232,
+      "to": "developmental_psychology",
+      "type": "investigation_connection"
+    },
+    {
+      "authority_strength": 0.49156618985644185,
+      "created_at": "2025-07-21T12:17:27.042704",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 95",
+      "id": "rel_142",
+      "strain_amplitude": 0.7316382968947535,
+      "to": "entity_69",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.680810517728791,
+      "created_at": "2025-07-21T12:17:27.042844",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 95",
+      "id": "rel_143",
+      "strain_amplitude": 0.4104266063115719,
+      "to": "entity_70",
+      "type": "coordination_connection"
+    },
+    {
+      "authority_strength": 0.3057368142455605,
+      "created_at": "2025-07-21T12:17:27.042859",
+      "created_by": "stage_manager",
+      "from": "Coordination Hub 95",
+      "id": "rel_144",
+      "strain_amplitude": 0.6664016125270396,
+      "to": "entity_71",
+      "type": "coordination_connection"
+    },
+    {
+      "id": "rel_145",
+      "from": "Mathematical Concept 96",
+      "to": "entity_69",
+      "type": "mathematical_connection",
+      "created_by": "mathematician",
+      "created_at": "2025-07-21T12:18:55.299527",
+      "authority_strength": 0.5473177874743467,
+      "strain_amplitude": 0.4796749456419416
+    },
+    {
+      "id": "rel_146",
+      "from": "Creative Vision 97",
+      "to": "entity_82",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:18:57.311453",
+      "authority_strength": 0.8995434643729834,
+      "strain_amplitude": 0.49930026209248524
+    },
+    {
+      "id": "rel_147",
+      "from": "Creative Vision 97",
+      "to": "mechanics",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:18:57.311460",
+      "authority_strength": 0.4013646313677216,
+      "strain_amplitude": 0.37720914993017707
+    },
+    {
+      "id": "rel_148",
+      "from": "Creative Vision 97",
+      "to": "topology",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:18:57.311465",
+      "authority_strength": 0.5469717715588768,
+      "strain_amplitude": 0.6851509534852236
+    },
+    {
+      "id": "rel_149",
+      "from": "Philosophical Reflection 98",
+      "to": "entity_71",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:18:58.318755",
+      "authority_strength": 0.5695600033416185,
+      "strain_amplitude": 0.7920473094950884
+    },
+    {
+      "id": "rel_150",
+      "from": "Philosophical Reflection 98",
+      "to": "entity_77",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:18:58.318771",
+      "authority_strength": 0.35891899503765934,
+      "strain_amplitude": 0.4236061965031708
+    },
+    {
+      "id": "rel_151",
+      "from": "Philosophical Reflection 98",
+      "to": "entity_82",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:18:58.318780",
+      "authority_strength": 0.7443063839683708,
+      "strain_amplitude": 0.6690423728250704
+    },
+    {
+      "id": "rel_152",
+      "from": "Research Investigation 99",
+      "to": "algebra",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:18:59.326044",
+      "authority_strength": 0.5251520287921614,
+      "strain_amplitude": 0.7345469024085154
+    },
+    {
+      "id": "rel_153",
+      "from": "Research Investigation 99",
+      "to": "linear_algebra",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:18:59.326060",
+      "authority_strength": 0.5848531806932585,
+      "strain_amplitude": 0.6380275475729715
+    },
+    {
+      "id": "rel_154",
+      "from": "Research Investigation 99",
+      "to": "topology",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:18:59.326076",
+      "authority_strength": 0.8230823619185328,
+      "strain_amplitude": 0.6629987375198715
+    },
+    {
+      "id": "rel_155",
+      "from": "Research Investigation 99",
+      "to": "inductive_reasoning",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:18:59.326088",
+      "authority_strength": 0.6273526411425132,
+      "strain_amplitude": 0.4073389345268549
+    },
+    {
+      "id": "rel_156",
+      "from": "Research Investigation 99",
+      "to": "deductive_reasoning",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:18:59.326099",
+      "authority_strength": 0.8032566256179563,
+      "strain_amplitude": 0.4509517881064615
+    },
+    {
+      "id": "rel_157",
+      "from": "Coordination Hub 101",
+      "to": "entity_69",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:01.338470",
+      "authority_strength": 0.6360998952641606,
+      "strain_amplitude": 0.588127116074345
+    },
+    {
+      "id": "rel_158",
+      "from": "Coordination Hub 101",
+      "to": "entity_70",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:01.338478",
+      "authority_strength": 0.791415779957871,
+      "strain_amplitude": 0.11915212158007726
+    },
+    {
+      "id": "rel_159",
+      "from": "Coordination Hub 101",
+      "to": "entity_71",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:01.338483",
+      "authority_strength": 0.7231470387506522,
+      "strain_amplitude": 0.78352855623325
+    },
+    {
+      "id": "rel_160",
+      "from": "Creative Vision 102",
+      "to": "entity_79",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:05.355508",
+      "authority_strength": 0.4278085810942971,
+      "strain_amplitude": 0.4983717241808453
+    },
+    {
+      "id": "rel_161",
+      "from": "Creative Vision 102",
+      "to": "mechanics",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:05.355517",
+      "authority_strength": 0.6508995960625983,
+      "strain_amplitude": 0.7951997712309234
+    },
+    {
+      "id": "rel_162",
+      "from": "Creative Vision 102",
+      "to": "entity_94",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:05.355524",
+      "authority_strength": 0.8001215740301275,
+      "strain_amplitude": 0.2860765899597237
+    },
+    {
+      "id": "rel_163",
+      "from": "Philosophical Reflection 103",
+      "to": "entity_71",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:06.359235",
+      "authority_strength": 0.5007854595172592,
+      "strain_amplitude": 0.29317680570261406
+    },
+    {
+      "id": "rel_164",
+      "from": "Philosophical Reflection 103",
+      "to": "entity_77",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:06.359246",
+      "authority_strength": 0.7879782559412019,
+      "strain_amplitude": 0.5625592231455443
+    },
+    {
+      "id": "rel_165",
+      "from": "Philosophical Reflection 103",
+      "to": "entity_82",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:06.359256",
+      "authority_strength": 0.8043855771433239,
+      "strain_amplitude": 0.3441678858517305
+    },
+    {
+      "id": "rel_166",
+      "from": "Research Investigation 104",
+      "to": "algebra",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:07.366960",
+      "authority_strength": 0.7647655988520012,
+      "strain_amplitude": 0.5786097090493552
+    },
+    {
+      "id": "rel_167",
+      "from": "Research Investigation 104",
+      "to": "geometry",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:07.366976",
+      "authority_strength": 0.44585172475596335,
+      "strain_amplitude": 0.41095302459204175
+    },
+    {
+      "id": "rel_168",
+      "from": "Research Investigation 104",
+      "to": "calculus",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:07.366986",
+      "authority_strength": 0.5002517356009253,
+      "strain_amplitude": 0.5132635117334254
+    },
+    {
+      "id": "rel_169",
+      "from": "Research Investigation 104",
+      "to": "set_theory",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:07.366995",
+      "authority_strength": 0.7118479142872683,
+      "strain_amplitude": 0.6243721534519858
+    },
+    {
+      "id": "rel_170",
+      "from": "Research Investigation 104",
+      "to": "number_theory",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:07.367003",
+      "authority_strength": 0.7285760491293118,
+      "strain_amplitude": 0.42839096055618553
+    },
+    {
+      "id": "rel_171",
+      "from": "Coordination Hub 106",
+      "to": "entity_69",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:09.376906",
+      "authority_strength": 0.3895841508351948,
+      "strain_amplitude": 0.25847809406143657
+    },
+    {
+      "id": "rel_172",
+      "from": "Coordination Hub 106",
+      "to": "entity_70",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:09.376914",
+      "authority_strength": 0.8412525438002283,
+      "strain_amplitude": 0.5090542363961446
+    },
+    {
+      "id": "rel_173",
+      "from": "Coordination Hub 106",
+      "to": "entity_71",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:09.376920",
+      "authority_strength": 0.8293698232449316,
+      "strain_amplitude": 0.37945910121365856
+    },
+    {
+      "id": "rel_174",
+      "from": "Creative Vision 107",
+      "to": "periodic_table",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:13.397878",
+      "authority_strength": 0.7917803446181526,
+      "strain_amplitude": 0.13840124233071485
+    },
+    {
+      "id": "rel_175",
+      "from": "Creative Vision 107",
+      "to": "algebra",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:13.397887",
+      "authority_strength": 0.354930285967589,
+      "strain_amplitude": 0.2022037249757524
+    },
+    {
+      "id": "rel_176",
+      "from": "Creative Vision 107",
+      "to": "cognitive_psychology",
+      "type": "creative_synthesis",
+      "created_by": "dreamer",
+      "created_at": "2025-07-21T12:19:13.397894",
+      "authority_strength": 0.6302282544673845,
+      "strain_amplitude": 0.2356757316334218
+    },
+    {
+      "id": "rel_177",
+      "from": "Philosophical Reflection 108",
+      "to": "entity_71",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:14.405079",
+      "authority_strength": 0.36898894254423975,
+      "strain_amplitude": 0.5907207464458718
+    },
+    {
+      "id": "rel_178",
+      "from": "Philosophical Reflection 108",
+      "to": "entity_77",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:14.405095",
+      "authority_strength": 0.8784102332127304,
+      "strain_amplitude": 0.6394233370896685
+    },
+    {
+      "id": "rel_179",
+      "from": "Philosophical Reflection 108",
+      "to": "entity_82",
+      "type": "philosophical_connection",
+      "created_by": "philosopher",
+      "created_at": "2025-07-21T12:19:14.405103",
+      "authority_strength": 0.3634006233392488,
+      "strain_amplitude": 0.20280687983015983
+    },
+    {
+      "id": "rel_180",
+      "from": "Research Investigation 109",
+      "to": "algebra",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:15.409551",
+      "authority_strength": 0.32632779995070615,
+      "strain_amplitude": 0.7663747431269213
+    },
+    {
+      "id": "rel_181",
+      "from": "Research Investigation 109",
+      "to": "geometry",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:15.409571",
+      "authority_strength": 0.40808687863454257,
+      "strain_amplitude": 0.5357845976319819
+    },
+    {
+      "id": "rel_182",
+      "from": "Research Investigation 109",
+      "to": "calculus",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:15.409582",
+      "authority_strength": 0.7295058863504258,
+      "strain_amplitude": 0.36723699841947544
+    },
+    {
+      "id": "rel_183",
+      "from": "Research Investigation 109",
+      "to": "set_theory",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:15.409592",
+      "authority_strength": 0.8848328699274868,
+      "strain_amplitude": 0.6655578078798419
+    },
+    {
+      "id": "rel_184",
+      "from": "Research Investigation 109",
+      "to": "number_theory",
+      "type": "investigation_connection",
+      "created_by": "investigator",
+      "created_at": "2025-07-21T12:19:15.409601",
+      "authority_strength": 0.6023336855977663,
+      "strain_amplitude": 0.22720855017355887
+    },
+    {
+      "id": "rel_185",
+      "from": "Coordination Hub 111",
+      "to": "entity_69",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:17.419028",
+      "authority_strength": 0.5583692113689331,
+      "strain_amplitude": 0.6087279838869534
+    },
+    {
+      "id": "rel_186",
+      "from": "Coordination Hub 111",
+      "to": "entity_70",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:17.419037",
+      "authority_strength": 0.5669432608828273,
+      "strain_amplitude": 0.5190228125521832
+    },
+    {
+      "id": "rel_187",
+      "from": "Coordination Hub 111",
+      "to": "entity_71",
+      "type": "coordination_connection",
+      "created_by": "stage_manager",
+      "created_at": "2025-07-21T12:19:17.419044",
+      "authority_strength": 0.5356379932457254,
+      "strain_amplitude": 0.44617890536847205
+    }
+  ]
+}
